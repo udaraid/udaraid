@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDAR Foundation</title>
+
+    <!-- Tailwind CSS Integration -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-green-600">
+    <header class="bg-green-600 shadow-sm fixed w-full z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href="#" class="flex items-center">
+            <span class="text-2xl font-extrabold text-emerald-600 tracking-wider">UDAR Foundation</span>
+          </a>
+
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="./projects.html" class="text-gray-700 hover:text-emerald-700 font-semibold">Projects</a>
+            <a href="./about.html" class="text-gray-700 hover:text-emerald-700 font-semibold">About Us</a>
+            <a href="#donate" class="bg-emerald-600 text-white px-5 py-2 rounded-xl hover:bg-emerald-700">Donate</a>
+          </nav>
+
+          <div class="md:hidden">
+            <button class="text-gray-700 focus:outline-none">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-20">
+      <section class="bg-gradient-to-r from-emerald-900 to-emerald-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+          <p class="text-3xl font-serif italic mb-4 text-emerald-100">"The believer's shade on the Day of Resurrection will be their charity"</p>
+          <p class="text-emerald-200 font-semibold">- Hadith</p>
+        </div>
+      </section>
+
+      <section class="pt-24 pb-16 px-4 bg-gradient-to-br from-emerald-50 to-emerald-100">
+        <div class="container mx-auto text-center">
+          <h1 class="text-5xl font-extrabold text-gray-800 mb-6">Building a Better Bangladesh Together</h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Join us in our mission to heal, rebuild, and empower communities across Bangladesh through sustainable development and emergency relief.
+          </p>
+          <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="#donate" class="bg-emerald-600 text-white px-8 py-4 rounded-full text-lg hover:bg-emerald-700">Make a Difference</a>
+            <a href="about.html" class="bg-emerald-600 text-white px-8 py-4 rounded-full text-lg hover:bg-emerald-700">About Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold text-gray-800 mb-6">Want to Volunteer with Us?</h2>
+          <p class="text-gray-600 max-w-xl mx-auto mb-8">We welcome passionate individuals to join our mission of creating positive change in communities across Bangladesh.</p>
+          <a href="#" class="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg hover:bg-emerald-700">Become a Volunteer</a>
+        </div>
+      </section>
+
+      <section id="projects" class="py-20 bg-green-600">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800">Our Projects</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Explore impactful initiatives making a difference in Bangladesh.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
+              <img src="/images/flood-relief.jpg" alt="Flood Relief" class="w-full h-56 object-cover">
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3">Flood Relief: Making a Difference in Noakhali</h3>
+                <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in Noakhali region.</p>
+                <a href="#" class="text-emerald-600 font-medium hover:underline">Read More</a>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
+              <img src="/images/student-support.jpg" alt="Student Support Program" class="w-full h-56 object-cover">
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3">Student Support Program Launches</h3>
+                <p class="text-gray-700 mb-4">Supporting underprivileged students with educational materials and scholarships.</p>
+                <a href="#" class="text-emerald-600 font-medium hover:underline">Read More</a>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
+              <img src="/images/healthcare.jpg" alt="Community Recovery Stories" class="w-full h-56 object-cover">
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3">Community Recovery Stories</h3>
+                <p class="text-gray-700 mb-4">Stories of resilience and recovery from our supported communities.</p>
+                <a href="#" class="text-emerald-600 font-medium hover:underline">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
+              <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="projects.html" class="hover:text-white">Our Programs</a></li>
+                <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                <li><a href="#donate" class="hover:text-white">Donate</a></li>
+                <li><a href="#" class="hover:text-white">Contact Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Contact</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li>Dhaka, Bangladesh</li>
+                <li>Email: info@abf.org</li>
+                <li>Phone: +880 123 456 789</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>&copy; 2024 UDAR Foundation. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
