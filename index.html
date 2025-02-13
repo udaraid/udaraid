@@ -38,6 +38,38 @@
             text-align: center;
             z-index: 1; /* Ensure text is above overlay */
         }
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
   </head>
   <body class="bg-green-600">
@@ -108,8 +140,8 @@
               <img src="./images/flood-relief.jpg" alt="Flood Relief" class="w-full h-56 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-3">Flood Relief: Making a Difference in Noakhali</h3>
-                <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in Noakhali region.</p>
-                <a href="#" class="text-emerald-600 font-medium hover:underline">Read More</a>
+                <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in Flood affected region..</p>
+                <a href="#" class="text-emerald-600 font-medium hover:underline read-more" id="flood-relief">Read More</a>
               </div>
             </div>
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
@@ -117,7 +149,7 @@
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-3">Student Support Program Launches</h3>
                 <p class="text-gray-700 mb-4">Supporting underprivileged students with educational materials and scholarships.</p>
-                <a href="#" class="text-emerald-600 font-medium hover:underline">Read More</a>
+                <a href="#" class="text-emerald-600 font-medium hover:underline read-more" id="student-support">Read More</a>
               </div>
             </div>
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
@@ -131,6 +163,25 @@
           </div>
         </div>
       </section>
+
+      <!-- Modal for Flood Relief -->
+      <div id="floodModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 class="text-2xl font-bold mb-4">Flood Relief: Making a Difference in Noakhali</h2>
+          <p>Bangladesh has recently experienced one of the most devastating floods in decades, leaving already vulnerable communities in the midst of a severe humanitarian crisis. Entire regions have been submerged, homes destroyed, and families displaced. The catastrophic flooding has overwhelmed local resources, creating an urgent need for both immediate relief and long-term recovery efforts.</p>
+          <p>Many of the areas hardest hit by the floods were already struggling with poverty and limited access to essential resources. These communities, often situated in low-lying regions prone to natural disasters, are now facing the compounded challenges of lost homes, food shortages, and the spread of waterborne diseases. Families have been forced to flee their homes, leaving behind what little they had. The floods have also damaged critical infrastructure, such as roads, schools, and health facilities, further isolating these communities.</p>
+        </div>
+      </div>
+
+      <!-- Modal for Student Support Program -->
+      <div id="studentModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 class="text-2xl font-bold mb-4">Student Support Program Launches</h2>
+          <p>The people of Bangladesh are facing an unprecedented crisis. After years of enduring a corrupt regime, the government has finally fallen. While this is a moment of hope for a better future, it has come at a significant cost. What started as an anti-discrimination student movement to reform the existing quota system on some of the highly sought government jobs in the country, quickly became a battleground as the government attacked its own people. Brave citizens took to the streets, demanding justice and freedom, only to be met with violence. On the days leading to the victory on August 5th, there were indiscriminate shooting and arson attacks throughout the country. Many were injured (rickshaw pullers and street vendors who became amputees from gunshot wounds) during protests, and countless families have lost their livelihoods as businesses were destroyed in the chaos.</p>
+        </div>
+      </div>
 
       <section class="py-16 bg-white">
         <div class="container mx-auto flex flex-col md:flex-row items-center text-center md:text-left">
@@ -187,5 +238,46 @@
         </div>
       </footer>
     </main>
+
+    <script>
+        // Get the modal
+        var studentModal = document.getElementById("studentModal");
+        var floodModal = document.getElementById("floodModal");
+
+        // Get the button that opens the modals
+        var studentBtn = document.getElementById("student-support");
+        var floodBtn = document.getElementById("flood-relief");
+
+        // Get the <span> element that closes the modals
+        var span = document.getElementsByClassName("close");
+
+        // When the user clicks the student button, open the student modal 
+        studentBtn.onclick = function() {
+            studentModal.style.display = "block";
+        }
+
+        // When the user clicks the flood button, open the flood modal 
+        floodBtn.onclick = function() {
+            floodModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modals
+        for (let i = 0; i < span.length; i++) {
+            span[i].onclick = function() {
+                studentModal.style.display = "none";
+                floodModal.style.display = "none";
+            }
+        }
+
+        // When the user clicks anywhere outside of the modals, close them
+        window.onclick = function(event) {
+            if (event.target == studentModal) {
+                studentModal.style.display = "none";
+            }
+            if (event.target == floodModal) {
+                floodModal.style.display = "none";
+            }
+        }
+    </script>
   </body>
 </html>
