@@ -15,10 +15,22 @@
             color: #333;
         }
         header {
+            position: relative; /* Allow absolute positioning of child elements */
             background-color: #004d40;
             color: white;
-            text-align: center;
             padding: 20px 10px;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center text */
+        }
+        .back-to-home {
+            position: absolute; /* Position the button in the upper left corner */
+            top: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: #e0f2f1; /* Light color for visibility */
+            font-weight: bold;
         }
         header h1 {
             margin: 0;
@@ -106,6 +118,7 @@
 <body>
 
 <header>
+    <a href="index.html" class="back-to-home">← Back to Home</a>
     <h1>Support Our Mission</h1>
     <p>Your contributions help us make a difference in communities worldwide.</p>
 </header>
