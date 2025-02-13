@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Projects - Amar Bangladesh Foundation</title>
+    <title>Our Projects - Udar Aid </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
@@ -32,7 +34,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
                     <div class="h-48 overflow-hidden">
                         <img 
-                            src="/images/flood-relief.jpg" 
+                            src="./images/flood-relief.jpg" 
                             alt="Flood Relief Project" 
                             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         />
@@ -65,7 +67,7 @@
                                 <span>3 districts covered</span>
                             </div>
                         </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center">
+                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="flood">
                             Read More 
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -78,7 +80,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
                     <div class="h-48 overflow-hidden">
                         <img 
-                            src="/images/student-support.jpg" 
+                            src="./images/student-support.jpg" 
                             alt="Student Support Program" 
                             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         />
@@ -110,7 +112,7 @@
                                 <span>5 schools partnered</span>
                             </div>
                         </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center">
+                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="student">
                             Read More 
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -123,7 +125,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
                     <div class="h-48 overflow-hidden">
                         <img 
-                            src="/images/healthcare.jpg" 
+                            src="./images/Community.jpg" 
                             alt="Healthcare Initiatives" 
                             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         />
@@ -155,7 +157,7 @@
                                 <span>2 medical camps established</span>
                             </div>
                         </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center">
+                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="community">
                             Read More 
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -167,11 +169,50 @@
         </div>
     </section>
 
+    <!-- Modal for Project Details -->
+    <div id="project-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden justify-center items-center">
+        <div class="bg-white rounded-lg p-6 max-w-lg w-full">
+            <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
+            <p id="modal-description" class="text-gray-700 mb-4"></p>
+            <button id="close-modal" class="bg-[#27AE60] text-white px-4 py-2 rounded">Close</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2024 Amar Bangladesh Foundation. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            const projectDetails = {
+                flood: {
+                    title: "Flood Relief: Making a Difference in Noakhali",
+                    description: "Our emergency response team is providing immediate assistance to flood-affected communities in the Noakhali region. We have supported over 500 families with essential supplies and resources."
+                },
+                student: {
+                    title: "Student Support Program Launches",
+                    description: "This program aims to support underprivileged students by providing educational materials, scholarships, and mentorship opportunities to help them succeed in their academic pursuits."
+                },
+                community: {
+                    title: "Community Recovery Stories",
+                    description: "We share inspiring stories of resilience and recovery from the communities we support, highlighting the strength and determination of individuals overcoming challenges."
+                }
+            };
+
+            $('.read-more').on('click', function() {
+                const project = $(this).data('project');
+                $('#modal-title').text(projectDetails[project].title);
+                $('#modal-description').text(projectDetails[project].description);
+                $('#project-modal').removeClass('hidden');
+            });
+
+            $('#close-modal').on('click', function() {
+                $('#project-modal').addClass('hidden');
+            });
+        });
+    </script>
 </body>
 </html> 

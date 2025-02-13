@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - UDAR Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .hero-banner {
+            background-image: url('https://via.placeholder.com/1200x400'); /* Replace with actual banner image */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero-banner h2 {
+            font-size: 36px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .donation-section {
+            text-align: center;
+        }
+        .donation-section h2 {
+            color: #004d40;
+        }
+        .donation-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .donation-form input[type="text"],
+        .donation-form input[type="email"],
+        .donation-form select,
+        .donation-form input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .donation-form button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #004d40;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .donation-form button:hover {
+            background-color: #00332e;
+        }
+        .suggested-amounts {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .suggested-amounts button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #e0f2f1; /* Light green */
+            color: #004d40; /* Dark green */
+            cursor: pointer;
+        }
+        .suggested-amounts button:hover {
+            background-color: #b2dfdb; /* Slightly darker green */
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #004d40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Support Our Mission</h1>
+    <p>Your contributions help us make a difference in communities worldwide.</p>
+</header>
+
+<div class="hero-banner">
+    <h2>Make a Difference Today</h2>
+</div>
+
+<div class="container">
+    <div class="donation-section">
+        <h2>Make a Donation</h2>
+        <p>Your generosity supports our efforts in providing aid, education, and community development. Choose your donation type below:</p>
+
+        <!-- Suggested Donation Amounts -->
+        <div class="suggested-amounts">
+            <button onclick="setAmount(25)">$25</button>
+            <button onclick="setAmount(50)">$50</button>
+            <button onclick="setAmount(100)">$100</button>
+            <button onclick="setAmount(200)">$200</button>
+            <button onclick="setAmount(500)">$500</button>
+        </div>
+
+        <!-- Donation Form -->
+        <form class="donation-form" action="/process-donation" method="POST">
+            <!-- Name -->
+            <input type="text" name="name" placeholder="Full Name" required>
+
+            <!-- Email -->
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <!-- Donation Type -->
+            <select name="donation_type" required>
+                <option value="" disabled selected>Select Donation Type</option>
+                <option value="zakat">Zakat</option>
+                <option value="sadaqah">Sadaqah</option>
+                <option value="general">General Donation</option>
+                <option value="education">Education Support</option>
+                <option value="emergency">Emergency Relief</option>
+            </select>
+
+            <!-- Amount -->
+            <input id="donation-amount" type="number" name="amount" placeholder="Donation Amount (USD)" min="1" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Donate Now</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 UDAR Foundation | All Rights Reserved
+</footer>
+
+<script>
+// Pre-fill donation amount when suggested amount is clicked
+function setAmount(amount) {
+    document.getElementById('donation-amount').value = amount; 
+}
+</script>
+
+</body>
+</html> 
