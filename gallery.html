@@ -7,8 +7,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal-caption {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-<<header class="bg-white shadow-sm">
+<header class="bg-white shadow-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
         <nav>
@@ -22,54 +46,80 @@
     </div>
 </header>
 
-    <main class="pt-20">
-        <section class="py-16 bg-white">
-            <div class="container mx-auto text-center">
-                <h1 class="text-4xl font-bold text-gray-800 mb-6">Our Gallery</h1>
-                <p class="text-gray-600 mb-8">Explore the moments that define our mission and impact.</p>
-            </div>
-        </section>
-
-        <section class="py-8">
-            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-                <!-- Image Placeholders -->
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 1" class="w-full h-56 object-cover">
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 2" class="w-full h-56 object-cover">
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 3" class="w-full h-56 object-cover">
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 4" class="w-full h-56 object-cover">
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 5" class="w-full h-56 object-cover">
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://via.placeholder.com/400" alt="Gallery Image 6" class="w-full h-56 object-cover">
-                </div>
-                <!-- Video Placeholders -->
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <div class="h-56 flex items-center justify-center">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                    </div>
-                </div>
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                    <div class="h-56 flex items-center justify-center">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 UDAR Foundation. All rights reserved.</p>
+<main class="pt-20">
+    <section class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-6">Our Gallery</h1>
+            <p class="text-gray-600 mb-8">Explore the moments that define our mission and impact.</p>
         </div>
-    </footer>
+    </section>
+
+    <section class="py-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+            <!-- Updated Image Placeholders -->
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/IMG_2203.JPG', 'CSE-DU with the Patients #1 ')">
+                <img src="./images/IMG_2203.JPG" alt="Gallery Image 1" class="w-full h-56 object-cover">
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/IMG_2204.JPG', 'CSE-DU with the Patients # 2')">
+                <img src="./images/IMG_2204.JPG" alt="Gallery Image 2" class="w-full h-56 object-cover">
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/IMG_2205.JPG', 'CSE-DU with the Patients')">
+                <img src="./images/IMG_2205.JPG" alt="Gallery Image 3" class="w-full h-56 object-cover">
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/unnamed-3.png', 'Getting a rickshaw, Saving a life')">
+                <img src="./images/unnamed-3.png" alt="Gallery Image 4" class="w-full h-56 object-cover">
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/unnamed-4.png', 'Helal Khan, our community recovery patient')">
+                <img src="./images/unnamed-4.png" alt="Gallery Image 5" class="w-full h-56 object-cover">
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('./images/unnamed.jpg', 'Nupur: A story of a Fighter')">
+                <img src="./images/unnamed.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover">
+            </div>
+            <!-- Video Placeholders -->
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                <div class="h-56 flex items-center justify-center">
+                    <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
+                </div>
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                <div class="h-56 flex items-center justify-center">
+                    <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()" style="color: white; font-size: 24px; position: absolute; top: 20px; right: 30px; cursor: pointer;">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div class="modal-caption" id="modalCaption"></div>
+</div>
+
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 UDAR Foundation. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function openModal(imageSrc, caption) {
+        document.getElementById("modalImage").src = imageSrc;
+        document.getElementById("modalCaption").innerText = caption;
+        document.getElementById("imageModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+
+    // Close modal when clicking outside of the image
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("imageModal")) {
+            closeModal();
+        }
+    }
+</script>
 </body>
 </html> 
