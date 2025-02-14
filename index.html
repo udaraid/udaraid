@@ -13,14 +13,12 @@
             font-family: 'Montserrat', sans-serif;
         }
         .hero-banner {
-            background-image: url('udaraid_logo.png'); /* Logo as background */
-            background-size: cover; /* Cover the entire section */
-            background-position: center; /* Center the image */
-            height: 400px; /* Height of the hero section */
+            background: url('udaraid_logo.png') center/cover no-repeat;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative; /* For overlay */
+            position: relative;
         }
         .hero-overlay {
             position: absolute;
@@ -28,119 +26,89 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(39, 174, 96, 0.5); /* Semi-transparent overlay */
+            background-color: rgba(39, 174, 96, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .hero-text {
-            color: white; /* Text color */
+            color: white;
             text-align: center;
-            z-index: 1; /* Ensure text is above overlay */
+            z-index: 1;
         }
-        /* Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
+    display: none;  /* Keep this */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+      }
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
+            background: #fff;
             padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         .close {
-            color: #aaa;
             float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
+            font-size: 24px;
             cursor: pointer;
+            color: #333;
+        }
+        .close:hover {
+            color: black;
         }
     </style>
   </head>
-  <body class="bg-green-600">
-    <header class="bg-white shadow-sm sticky top-0 w-full z-50">
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
-          <a href="#" class="flex items-center">
-            <span class="text-2xl font-extrabold text-[#27AE60] tracking-wider">UDAR Aid</span>
-          </a>
-
-          <nav class="hidden md:flex items-center space-x-8">
-            <a href="./projects.html" class="text-gray-700 hover:text-[#27AE60] font-semibold transition duration-300">Projects</a>
-            <a href="./about.html" class="text-gray-700 hover:text-[#27AE60] font-semibold transition duration-300">About Us</a>
-            <a href="donate.html" class="text-gray-700 hover:text-[#27AE60] font-semibold transition duration-300">Donate</a>
-            <a href="gallery.html" class="text-gray-700 hover:text-[#27AE60] font-semibold transition duration-300">Gallery</a>
-          </nav>
-
-          <div class="md:hidden">
-            <button class="text-gray-700 focus:outline-none">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
+  <body class="bg-gray-100">
+    <header class="bg-white shadow-md sticky top-0 w-full z-50 py-4">
+      <div class="container mx-auto flex justify-between items-center px-6">
+        <a href="#" class="text-2xl font-bold text-green-700 tracking-wide">UDAR Aid</a>
+        <nav class="hidden md:flex space-x-6">
+          <a href="projects.html" class="text-gray-700 hover:text-green-600">Projects</a>
+          <a href="about.html" class="text-gray-700 hover:text-green-600">About Us</a>
+          <a href="donate.html" class="text-gray-700 hover:text-green-600">Donate</a>
+          <a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a>
+        </nav>
       </div>
     </header>
-
     
-
-    <main class="pt-20">
-      <section class="bg-gradient-to-r from-emerald-900 to-emerald-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-          <p class="text-3xl font-serif italic mb-4 text-emerald-100">"The believer's shade on the Day of Resurrection will be their charity"</p>
-          <p class="text-emerald-200 font-semibold">- Hadith</p>
+    <main class="pt-16">
+      <section class="text-center bg-green-700 text-white py-12">
+        <p class="text-3xl italic">"The believer's shade on the Day of Resurrection will be their charity"</p>
+        <p class="mt-2 text-lg">- (Hadith, Tirmidhi)</p>
+      </section>
+      
+      <section class="py-24 px-6 text-center">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-6">For Every Child and Family</h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Join us in our mission to heal, rebuild, and empower communities.</p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <a href="donate.html" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-500">Make a Difference</a>
+          <a href="about.html" class="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-700">About Us</a>
         </div>
       </section>
+    </main>
 
-      <section class="pt-24 pb-16 px-4 relative">
-        <div class="absolute inset-0">
-            <div class="hero-banner" style="background-image: url('udaraid_logo.png'); background-size: cover; background-position: center; opacity: 0.3;"></div>
-        </div>
-        <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl font-extrabold text-gray-800 mb-6">For Every Child and Family</h1>
-            <p class="text-xl text-white mb-8 max-w-3xl mx-auto" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
-                Join us in our mission to heal, rebuild, and empower communities across the world through sustainable development and emergency relief.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="donate.html" class="bg-[#27AE60] text-white px-8 py-4 rounded-full text-lg hover:bg-[#219150]">Make a Difference</a>
-                <a href="about.html" class="bg-[#27AE60] text-white px-8 py-4 rounded-full text-lg hover:bg-[#219150]">About Us</a>
-            </div>
-        </div>
-      </section>
-
-      <!-- Divider -->
-      <div class="my-8">
-        <hr class="border-t-2 border-gray-300">
-      </div>
-
-      <section id="projects" class="py-20 bg-[#27AE60]">
+      <section id="projects" class="py-20 bg-green-600">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-800">Our Projects</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Explore impactful initiatives making a difference in Bangladesh.</p>
+            <h2 class="text-4xl font-bold text-white">Our Projects</h2>
+            <p class="text-gray-200 max-w-2xl mx-auto">Explore impactful initiatives making a difference in Bangladesh.</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform">
               <img src="./images/flood-relief.jpg" alt="Flood Relief" class="w-full h-56 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-3">Flood Relief: Making a Difference in Noakhali</h3>
-                <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in Flood affected region..</p>
+                <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in the flood-affected region.</p>
                 <a href="#" class="text-emerald-600 font-medium hover:underline read-more" id="flood-relief">Read More</a>
               </div>
             </div>
@@ -148,7 +116,7 @@
               <img src="./images/student-support.jpg" alt="Student Support Program" class="w-full h-56 object-cover">
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-3">Student Support Program Launches</h3>
-                <p class="text-gray-700 mb-4">Supporting student protestors with medical aids and long to short term sponsorship..</p>
+                <p class="text-gray-700 mb-4">Supporting student protestors with medical aids and long to short term sponsorship.</p>
                 <a href="#" class="text-emerald-600 font-medium hover:underline read-more" id="student-support">Read More</a>
               </div>
             </div>
