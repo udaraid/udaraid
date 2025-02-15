@@ -120,9 +120,9 @@
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
                         <img src="./images/event3.jpg" alt="Event 3" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Event Title 3</h3>
-                            <p class="text-gray-600 mb-4">Brief description of the event, including date, time, and location.</p>
-                            <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown3">3 days</span></p>
+                            <h3 class="text-xl font-semibold mb-2">Upcoming Event at Delaware</h3>
+                            <p class="text-gray-600 mb-4">Announce Coming Soon.</p>
+                            <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown3">TBD</span></p>
                             <a href="#" class="text-green-600 hover:underline">Read More</a>
                         </div>
                     </div>
@@ -230,5 +230,30 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Initially hide the mobile menu
+            mobileMenu.style.display = 'none';
+            
+            mobileMenuButton.addEventListener('click', function() {
+                // Toggle the mobile menu
+                if (mobileMenu.style.display === 'none') {
+                    mobileMenu.style.display = 'block';
+                } else {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
