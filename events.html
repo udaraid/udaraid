@@ -16,60 +16,89 @@
         @media (max-width: 768px) {
             .mobile-menu {
                 display: none;
+                width: 100%;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
                 background: white;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 40;
+                z-index: 999;
             }
 
-            .grid {
-                grid-template-columns: 1fr;
+            .event-card {
+                width: 100% !important;
+                margin: 1rem 0;
             }
-            
-            .container {
+
+            .fundraiser-card {
+                width: 100% !important;
+                margin: 1rem 0;
+            }
+
+            main {
+                padding-top: 5rem;
+            }
+
+            .py-24 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            .px-6 {
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
-            
-            img {
-                max-width: 100%;
-                height: auto;
+
+            .text-4xl {
+                font-size: 2rem;
+            }
+
+            .grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .md\:grid-cols-2,
+            .lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 w-full z-50">
-        <div class="container mx-auto px-6 py-2">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="px-4 py-4">
+            <div class="flex justify-between items-center">
                 <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
-                </a>
-                <nav class="desktop-menu hidden md:flex space-x-6 relative z-50">
+                <nav class="desktop-menu hidden md:flex space-x-6">
                     <a href="projects.html" class="text-gray-700 hover:text-green-600">Projects</a>
                     <a href="about.html" class="text-gray-700 hover:text-green-600">About Us</a>
                     <a href="donate.html" class="text-gray-700 hover:text-green-600">Donate</a>
                     <a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a>
                     <a href="events.html" class="text-gray-700 hover:text-green-600">Events</a>
                 </nav>
-                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none" id="mobile-menu-button">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
                     </svg>
                 </button>
             </div>
-            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white shadow-lg" id="mobile-menu">
-                <div class="px-6 py-4">
-                    <a href="projects.html" class="text-gray-700 hover:text-green-600 block py-2">Projects</a>
-                    <a href="about.html" class="text-gray-700 hover:text-green-600 block py-2">About Us</a>
-                    <a href="donate.html" class="text-gray-700 hover:text-green-600 block py-2">Donate</a>
-                    <a href="gallery.html" class="text-gray-700 hover:text-green-600 block py-2">Gallery</a>
-                    <a href="events.html" class="text-gray-700 hover:text-green-600 block py-2">Events</a>
-                </div>
-            </nav>
         </div>
+        <nav class="mobile-menu md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-4 py-2">
+                <a href="projects.html" class="text-gray-700 hover:text-green-600 block py-2">Projects</a>
+                <a href="about.html" class="text-gray-700 hover:text-green-600 block py-2">About Us</a>
+                <a href="donate.html" class="text-gray-700 hover:text-green-600 block py-2">Donate</a>
+                <a href="gallery.html" class="text-gray-700 hover:text-green-600 block py-2">Gallery</a>
+                <a href="events.html" class="text-gray-700 hover:text-green-600 block py-2">Events</a>
+            </div>
+        </nav>
     </header>
 
     <main class="pt-16">
