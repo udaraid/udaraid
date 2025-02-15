@@ -259,24 +259,19 @@
             </div>
         </div>
     </footer>
-    <script>
+
+     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            // Initially hide the mobile menu
             mobileMenu.style.display = 'none';
             
-            mobileMenuButton.addEventListener('click', function() {
-                // Toggle the mobile menu
-                if (mobileMenu.style.display === 'none') {
-                    mobileMenu.style.display = 'block';
-                } else {
-                    mobileMenu.style.display = 'none';
-                }
+            mobileMenuButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
             });
             
-            // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
                     mobileMenu.style.display = 'none';
