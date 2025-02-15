@@ -17,7 +17,7 @@
                 <ul class="flex space-x-6">
                     <li><a href="index.html" class="text-gray-700 hover:text-emerald-600">Home</a></li>
                     <li><a href="projects.html" class="text-gray-700 hover:text-emerald-600">Projects</a></li>
-                    <li><a href="about.html" class="text-gray-700 hover:text-emerald-600">Donate</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-emerald-600">About Us</a></li>
                     <li><a href="gallery.html" class="text-gray-700 hover:text-emerald-600">Gallery</a></li>
                 </ul>
             </nav>
@@ -25,17 +25,14 @@
     </header>
 
     <!-- Page Title -->
-    <section class="bg-gradient-to-r from-emerald-900 to-emerald-800 text-white py-16">
+    <section class="text-center bg-green-700 py-8 rounded-lg mb-12">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl font-bold mb-4">Make a Difference Today</h1>
             <p class="text-emerald-100 max-w-2xl mx-auto">Your contributions help us make a difference in communities worldwide.</p>
         </div>
     </section>
 
-    <div class="container mx-auto px-4 py-10 bg-white shadow-md rounded-lg">
-        <h2 class="text-2xl font-bold text-center text-emerald-900">Make a Donation</h2>
-        <p class="text-center text-gray-700 my-4">Your generosity supports our efforts in providing aid, education, and community development.</p>
-        
+   
         <form class="donation-form" action="/process-donation" method="POST" class="max-w-lg mx-auto">
             <input type="text" name="name" placeholder="Full Name" class="w-full p-3 border rounded mb-3" required>
             <input type="email" name="email" placeholder="Email Address" class="w-full p-3 border rounded mb-3" required>
@@ -48,12 +45,50 @@
                 <option value="emergency">Emergency Relief</option>
             </select>
             <input id="donation-amount" type="number" name="amount" placeholder="Donation Amount (USD)" class="w-full p-3 border rounded mb-3" min="1" required>
-            <button type="submit" class="w-full bg-emerald-700 text-white py-3 rounded">Donate Now</button>
+            <button type="submit" class="w-full bg-green-700 text-white py-3 rounded">Donate Now</button>
         </form>
-    </div>
 
-    <footer class="bg-gray-900 text-white py-8 text-center mt-10">
-        <p>&copy; 2024 UDAR Foundation | All Rights Reserved</p>
-    </footer>
+        <!-- Add vertical space -->
+        <div class="py-8"></div>
+    </div>
+<section>
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
+              <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
+                <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
+                <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
+                <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Contact</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li>Delaware, USA</li>
+                <li>Email: contact@udaraid.org</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+              <div class="flex space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </section>
 </body>
 </html>

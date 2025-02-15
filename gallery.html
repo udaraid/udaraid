@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -32,7 +32,7 @@
         }
     </style>
 </head>
-<header class="bg-white shadow-sm">
+<body class="bg-gray-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
         <nav>
@@ -47,12 +47,19 @@
 </header>
 
 <main class="pt-20">
-    <section class="py-16 bg-white">
+    <!-- Page Title -->
+    <section class="text-center bg-green-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Our Gallery</h1>
+            <p class="text-emerald-100 max-w-2xl mx-auto">Explore the moments that define our mission and impact</p>
+        </div>
+    </section>
+    <!-- <section class="py-16 bg-white">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl font-bold text-gray-800 mb-6">Our Gallery</h1>
             <p class="text-gray-600 mb-8">Explore the moments that define our mission and impact.</p>
         </div>
-    </section>
+    </section> -->
 
     <section class="py-8">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -97,11 +104,43 @@
     <div class="modal-caption" id="modalCaption"></div>
 </div>
 
-<footer class="bg-gray-900 text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2024 UDAR Foundation. All rights reserved.</p>
+<footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
+          <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
+            <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
+            <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
+            <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>Delaware, USA</li>
+            <li>Email: contact@udaraid.org</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
+      </div>
     </div>
-</footer>
+  </footer>
 
 <script>
     function openModal(imageSrc, caption) {
