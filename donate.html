@@ -10,6 +10,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Safari-specific fix - minimal styles added -->
+    <style>
+        @supports (-webkit-hyphens:none) {
+            header, footer, nav {
+                display: block !important;
+                visibility: visible !important;
+            }
+            .container, .grid {
+                display: grid !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-white shadow-md sticky top-0 z-50">
@@ -48,7 +61,7 @@
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-yellow-500">
             <h2 class="text-2xl font-bold mb-4">General Donation</h2>
-            <p class="text-gray-600 mb-4">Support our foundation’s ongoing humanitarian efforts.</p>
+            <p class="text-gray-600 mb-4">Support our foundation's ongoing humanitarian efforts.</p>
             <div data-entity="EMBED_FORM" data-source="CharityStack" id="10995400-2d07-45f9-8061-a2da138cb7cc"></div>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-red-500">
@@ -68,25 +81,57 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="text-xl font-semibold mb-4">About UDAR</h3>
-                <p class="text-gray-400">Dedicated to improving lives through sustainable development and emergency relief.</p>
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
+                    <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
+                        <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
+                        <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
+                        <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
+                        <li><a href="events.html" class="hover:text-white">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Delaware, USA</li>
+                        <li>Email: contact@udaraid.org</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
+                        <a href="https://www.instagram.com/udarorg/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="projects.html" class="hover:text-emerald-400">Projects</a></li>
-                    <li><a href="about.html" class="hover:text-emerald-400">About Us</a></li>
-                    <li><a href="donate.html" class="hover:text-emerald-400">Donate</a></li>
-                    <li><a href="gallery.html" class="hover:text-emerald-400">Gallery</a></li>
-                </ul>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
-        </div>
-        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Simple script to ensure Safari rendering -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force Safari to redraw elements
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                setTimeout(function() {
+                    document.querySelector('header').style.display = 'block';
+                    document.querySelector('footer').style.display = 'block';
+                    document.querySelector('nav').style.display = 'block';
+                }, 100);
+            }
+        });
+    </script>
 </body>
 </html>
