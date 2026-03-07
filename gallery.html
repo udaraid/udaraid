@@ -4,229 +4,386 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - UDAR Foundation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
+      :root {
+        --brand-900: #0f3d2e;
+        --brand-700: #166948;
+        --brand-500: #1f9a63;
+        --brand-300: #87d4b2;
+        --ink-900: #0f1c16;
+        --ink-700: #2a3a33;
+        --ink-500: #4a5b52;
+        --sand-50: #f7f5f0;
+        --sand-100: #f0ede6;
+        --sun-200: #f5d77a;
+        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
+        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
+
+      body {
+        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+        background: var(--sand-50);
+        color: var(--ink-900);
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        color: var(--ink-900);
+        letter-spacing: -0.01em;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
+          var(--sand-50);
+      }
+
+      .container-xl {
+        max-width: 1120px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-tight {
+        padding: 56px 0;
+      }
+
+      .nav-link {
+        color: var(--ink-700);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-700);
+      }
+
+      .page-hero {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: var(--brand-700);
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        border: 1px solid rgba(15, 28, 22, 0.05);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(15, 28, 22, 0.7);
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .modal-caption {
+        color: white;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .footer {
+        background: #111915;
+        color: #e2e6e1;
+      }
+
+      .footer a {
+        color: #b7c2ba;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--sun-200);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
         }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
+
+        .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          padding: 1rem;
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          border-radius: 0 0 18px 18px;
         }
-        .modal-caption {
-            color: white;
-            text-align: center;
-            margin-top: 10px;
+
+        .mobile-menu.active {
+          display: block;
         }
+
+        .mobile-menu a {
+          display: block;
+          padding: 0.7rem 0;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
     </style>
 </head>
-<body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
-        <nav>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="text-gray-700 hover:text-emerald-600">Home</a></li>
-                <li><a href="projects.html" class="text-gray-700 hover:text-emerald-600">Projects</a></li>
-                <li><a href="donate.html" class="text-gray-700 hover:text-emerald-600">Donate</a></li>
-                <li><a href="about.html" class="text-gray-700 hover:text-emerald-600">About Us</a></li>
-                <li><a href="events.html" class="text-gray-700 hover:text-green-600">Events</a></li>
+<body class="page-bg">
+    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
+        <div class="container-xl mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="relative z-50">
+                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
+                </a>
+                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
+                <div class="px-6 py-4">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-            </ul>
-        </nav>
+    <main class="pt-24">
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="page-hero px-8 py-10">
+                    <div class="text-white max-w-2xl text-center mx-auto">
+                        <h1 class="text-4xl font-bold mb-4 text-white">Our Gallery</h1>
+                        <p class="text-emerald-100">Explore the moments that define our mission and impact</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/IMG_2203.JPG', 'CSE-DU with the Student Protest Survivor #1')">
+                            <img src="./images/IMG_2203.JPG" alt="Gallery Image 1" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">CSE-DU with the Student Protest Survivor #1</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/IMG_2204.JPG', 'CSE-DU with the Student Protest Survivor #2')">
+                            <img src="./images/IMG_2204.JPG" alt="Gallery Image 2" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">CSE-DU with the Student Protest Survivor #2</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/IMG_2205.JPG', 'CSE-DU with the Student Protest Survivor #3')">
+                            <img src="./images/IMG_2205.JPG" alt="Gallery Image 3" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">CSE-DU with the Student Protest Survivor #3</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/unnamed-3.png', 'Giving a rickshaw, Saving a life')">
+                            <img src="./images/unnamed-3.png" alt="Gallery Image 4" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">Giving a rickshaw, Saving a life</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/unnamed-4.png', 'Helal Khan, our community recovery patient')">
+                            <img src="./images/unnamed-4.png" alt="Gallery Image 5" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">Helal Khan, our community recovery patient</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="cursor-pointer" onclick="openModal('./images/unnamed.jpg', 'Nupur: A story of a Fighter')">
+                            <img src="./images/unnamed.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">Nupur: A story of a Fighter</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="h-56 flex items-center justify-center">
+                            <iframe 
+                                src="https://drive.google.com/file/d/1aK6phsNUdEFqmw7hhfCIR6vVkCiUEphP/preview" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">Video Story: UDAR Foundation's Impact</p>
+                        </div>
+                    </div>
+
+                    <div class="card w-full">
+                        <div class="h-56 flex items-center justify-center">
+                            <iframe 
+                                src="https://drive.google.com/file/d/1l92yf-13tfb18rKl-O8aHhMG_7weseq1/preview" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                        <div class="p-4 text-center text-gray-700">
+                            <p class="font-medium">Video Story: Flood relief and Community rebuild</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()" style="color: white; font-size: 24px; position: absolute; top: 20px; right: 30px; cursor: pointer;">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
     </div>
-</header>
 
-<main class="pt-20">
-    <!-- Page Title -->
-    <section class="text-center bg-green-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl font-bold mb-4">Our Gallery</h1>
-            <p class="text-emerald-100 max-w-2xl mx-auto">Explore the moments that define our mission and impact</p>
-        </div>
-    </section>
-    <!-- <section class="py-16 bg-white">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold text-gray-800 mb-6">Our Gallery</h1>
-            <p class="text-gray-600 mb-8">Explore the moments that define our mission and impact.</p>
-        </div>
-    </section> -->
-
-    <!-- Updated container and grid section -->
-<section class="py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-            <!-- Image 1 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/IMG_2203.JPG', 'CSE-DU with the Student Protest Survivor #1')">
-                    <img src="./images/IMG_2203.JPG" alt="Gallery Image 1" class="w-full h-56 object-cover">
+    <footer class="footer py-16">
+        <div class="container-xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
+                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
                 </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">CSE-DU with the Student Protest Survivor #1</p>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
+                        <li>Delaware, USA</li>
+                        <li>Email: contact@udaraid.org</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
+                        <a href="https://x.com/udar_aid">Twitter</a>
+                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Image 2 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/IMG_2204.JPG', 'CSE-DU with the Student Protest Survivor #2')">
-                    <img src="./images/IMG_2204.JPG" alt="Gallery Image 2" class="w-full h-56 object-cover">
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">CSE-DU with the Student Protest Survivor #2</p>
-                </div>
-            </div>
-
-            <!-- Image 3 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/IMG_2205.JPG', 'CSE-DU with the Student Protest Survivor #3')">
-                    <img src="./images/IMG_2205.JPG" alt="Gallery Image 3" class="w-full h-56 object-cover">
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">CSE-DU with the Student Protest Survivor #3</p>
-                </div>
-            </div>
-
-            <!-- Image 4 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/unnamed-3.png', 'Giving a rickshaw, Saving a life')">
-                    <img src="./images/unnamed-3.png" alt="Gallery Image 4" class="w-full h-56 object-cover">
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">Giving a rickshaw, Saving a life</p>
-                </div>
-            </div>
-
-            <!-- Image 5 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/unnamed-4.png', 'Helal Khan, our community recovery patient')">
-                    <img src="./images/unnamed-4.png" alt="Gallery Image 5" class="w-full h-56 object-cover">
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">Helal Khan, our community recovery patient</p>
-                </div>
-            </div>
-
-            <!-- Image 6 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="cursor-pointer" onclick="openModal('./images/unnamed.jpg', 'Nupur: A story of a Fighter')">
-                    <img src="./images/unnamed.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover">
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">Nupur: A story of a Fighter</p>
-                </div>
-            </div>
-
-            <!-- Video 1 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="h-56 flex items-center justify-center">
-                    <iframe 
-                        src="https://drive.google.com/file/d/1aK6phsNUdEFqmw7hhfCIR6vVkCiUEphP/preview" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        class="rounded-lg">
-                    </iframe>
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">Video Story: UDAR Foundation's Impact</p>
-                </div>
-            </div>
-
-            <!-- Video 2 -->
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg w-full">
-                <div class="h-56 flex items-center justify-center">
-                    <iframe 
-                        src="https://drive.google.com/file/d/1l92yf-13tfb18rKl-O8aHhMG_7weseq1/preview" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        class="rounded-lg">
-                    </iframe>
-                </div>
-                <div class="p-4 text-center text-gray-700">
-                    <p class="font-medium">Video Story: Flood relief and Community rebuild</p>
-                </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
+                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
         </div>
-    </div>
-</section>
-</main>
+    </footer>
 
-<!-- Modal -->
-<div id="imageModal" class="modal">
-    <span class="close" onclick="closeModal()" style="color: white; font-size: 24px; position: absolute; top: 20px; right: 30px; cursor: pointer;">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div class="modal-caption" id="modalCaption"></div>
-</div>
-
-<footer class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
-          <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
-            <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
-            <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
-            <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Contact</h3>
-          <ul class="space-y-2 text-gray-400">
-            <li>Delaware, USA</li>
-            <li>Email: contact@udaraid.org</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-          <div class="flex space-x-4 mt-4">
-            <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-            <a href="https://x.com/udar_aid" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-            <a href="https://www.instagram.com/udaraidusa/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
-        </div>
-        </div>
-      </div>
-      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-        <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-<script>
-    function openModal(imageSrc, caption) {
-        document.getElementById("modalImage").src = imageSrc;
-        document.getElementById("modalCaption").innerText = caption;
-        document.getElementById("imageModal").style.display = "flex";
-    }
-
-    function closeModal() {
-        document.getElementById("imageModal").style.display = "none";
-    }
-
-    // Close modal when clicking outside of the image
-    window.onclick = function(event) {
-        if (event.target == document.getElementById("imageModal")) {
-            closeModal();
+    <script>
+        function openModal(imageSrc, caption) {
+            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modalCaption").innerText = caption;
+            document.getElementById("imageModal").style.display = "flex";
         }
-    }
-</script>
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("imageModal")) {
+                closeModal();
+            }
+        }
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>

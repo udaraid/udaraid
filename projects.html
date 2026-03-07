@@ -4,228 +4,406 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects - Udar Aid </title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body class="bg-gray-50">
-     <!-- Header with Navigation -->
-     <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-gray-700 hover:text-emerald-600">Home</a></li>
-                    <li><a href="about.html" class="text-gray-700 hover:text-emerald-600">About Us</a></li>
-                    <li><a href="donate.html" class="text-gray-700 hover:text-emerald-600">Donate</a></li>
-                    <li><a href="gallery.html" class="text-gray-700 hover:text-emerald-600">Gallery</a></li>
-                    <li><a href="events.html" class="text-gray-700 hover:text-green-600">Events</a></li>
+    <style>
+      :root {
+        --brand-900: #0f3d2e;
+        --brand-700: #166948;
+        --brand-500: #1f9a63;
+        --brand-300: #87d4b2;
+        --ink-900: #0f1c16;
+        --ink-700: #2a3a33;
+        --ink-500: #4a5b52;
+        --sand-50: #f7f5f0;
+        --sand-100: #f0ede6;
+        --sun-200: #f5d77a;
+        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
+        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
 
-                </ul>
+      body {
+        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+        background: var(--sand-50);
+        color: var(--ink-900);
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        color: var(--ink-900);
+        letter-spacing: -0.01em;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
+          var(--sand-50);
+      }
+
+      .container-xl {
+        max-width: 1120px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-tight {
+        padding: 56px 0;
+      }
+
+      .nav-link {
+        color: var(--ink-700);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-700);
+      }
+
+      .page-hero {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: var(--brand-700);
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border: 1px solid rgba(15, 28, 22, 0.05);
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 30px rgba(15, 28, 22, 0.15);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(135, 212, 178, 0.25);
+        color: var(--brand-700);
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(15, 28, 22, 0.6);
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .modal-content {
+        background: #fff;
+        padding: 28px;
+        border-radius: var(--radius-lg);
+        width: 100%;
+        max-width: 640px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .footer {
+        background: #111915;
+        color: #e2e6e1;
+      }
+
+      .footer a {
+        color: #b7c2ba;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--sun-200);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          padding: 1rem;
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          border-radius: 0 0 18px 18px;
+        }
+
+        .mobile-menu.active {
+          display: block;
+        }
+
+        .mobile-menu a {
+          display: block;
+          padding: 0.7rem 0;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+    </style>
+</head>
+<body class="page-bg">
+    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
+        <div class="container-xl mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="relative z-50">
+                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
+                </a>
+                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
+                <div class="px-6 py-4">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Page Title -->
-    <section class="text-center bg-green-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl font-bold mb-4">Our Projects</h1>
-            <p class="text-emerald-100 max-w-2xl mx-auto">
-                Stay informed about our latest initiatives, success stories, and the impact we're making together across Bangladesh.
-            </p>
-        </div>
-    </section>
-
-    <!-- Projects Grid -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img 
-                            src="./images/flood-relief.jpg" 
-                            alt="Flood Relief Project" 
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                                Emergency Relief
-                            </span>
-                            <span class="text-sm text-gray-500 ml-4">March 15, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 hover:text-blue-600 transition-colors">
-                            Flood Relief: Making a Difference in Noakhali
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Our emergency response team is providing immediate assistance to flood-affected communities in Noakhali region.
-                        </p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                <span>500+ families supported</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span>3 districts covered</span>
-                            </div>
-                        </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="flood">
-                            Read More 
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img 
-                            src="./images/student-support.jpg" 
-                            alt="Student Support Program" 
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                                Education
-                            </span>
-                            <span class="text-sm text-gray-500 ml-4">March 10, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 hover:text-blue-600 transition-colors">
-                            Student Support Program Launches
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Supporting student protestors with medical aids and long to short term sponsorship.
-                        </p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                                </svg>
-                                <span>200+ students supported</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                </svg>
-                                <span>2 Student Organization partnered</span>
-                            </div>
-                        </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="student">
-                            Read More 
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img 
-                            src="./images/Community.jpg" 
-                            alt="Healthcare Initiatives" 
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                                Healthcare
-                            </span>
-                            <span class="text-sm text-gray-500 ml-4">March 5, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 hover:text-blue-600 transition-colors">
-                            Community Recovery Stories
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Stories of resilience and recovery from our supported communities.
-                        </p>
-                        <div class="space-y-3 mb-4">
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                                <span>Multiple patients treated</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                </svg>
-                                <span>2 medical cases helped</span>
-                            </div>
-                        </div>
-                        <button class="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center read-more" data-project="community">
-                            Read More 
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
+    <main class="pt-24">
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="page-hero px-8 py-10">
+                    <div class="text-white max-w-2xl text-center mx-auto">
+                        <h1 class="text-4xl font-bold mb-4 text-white">Our Projects</h1>
+                        <p class="text-emerald-100">Stay informed about our latest initiatives, success stories, and the impact we're making together across Bangladesh.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Modal for Project Details -->
-    <div id="project-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden justify-center items-center">
-        <div class="bg-white rounded-lg p-6 max-w-lg w-full">
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="h-56 overflow-hidden">
+                            <img 
+                                src="./images/flood-relief.jpg" 
+                                alt="Flood Relief Project" 
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="tag">Emergency Relief</span>
+                                <span class="text-sm text-gray-500 ml-4">March 15, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Flood Relief: Making a Difference in Noakhali</h3>
+                            <p class="text-gray-600 mb-4">
+                                Our emergency response team is providing immediate assistance to flood-affected communities in Noakhali region.
+                            </p>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span>500+ families supported</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span>3 districts covered</span>
+                                </div>
+                            </div>
+                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="flood">
+                                Read More 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="h-56 overflow-hidden">
+                            <img 
+                                src="./images/student-support.jpg" 
+                                alt="Student Support Program" 
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="tag">Education</span>
+                                <span class="text-sm text-gray-500 ml-4">March 10, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Student Support Program Launches</h3>
+                            <p class="text-gray-600 mb-4">
+                                Supporting student protestors with medical aids and long to short term sponsorship.
+                            </p>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                    <span>200+ students supported</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                    <span>2 Student Organization partnered</span>
+                                </div>
+                            </div>
+                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="student">
+                                Read More 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="h-56 overflow-hidden">
+                            <img 
+                                src="./images/Community.jpg" 
+                                alt="Healthcare Initiatives" 
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="tag">Healthcare</span>
+                                <span class="text-sm text-gray-500 ml-4">March 5, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Community Recovery Stories</h3>
+                            <p class="text-gray-600 mb-4">
+                                Stories of resilience and recovery from our supported communities.
+                            </p>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                    <span>Multiple patients treated</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                    <span>2 medical cases helped</span>
+                                </div>
+                            </div>
+                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="community">
+                                Read More 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
             <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
             <p id="modal-description" class="text-gray-700 mb-4"></p>
-            <button id="close-modal" class="bg-[#27AE60] text-white px-4 py-2 rounded">Close</button>
+            <button id="close-modal" class="text-white px-4 py-2 rounded" style="background: var(--brand-700);">Close</button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4">
-          <div class="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
-              <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+    <footer class="footer py-16">
+        <div class="container-xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
+                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
+                        <li>Delaware, USA</li>
+                        <li>Email: contact@udaraid.org</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
+                        <a href="https://x.com/udar_aid">Twitter</a>
+                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul class="space-y-2 text-gray-400">
-                <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
-                <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
-                <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
-                <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
-              </ul>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
+                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Contact</h3>
-              <ul class="space-y-2 text-gray-400">
-                <li>Delaware, USA</li>
-                <li>Email: contact@udaraid.org</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-              <div class="flex space-x-4 mt-4">
-                <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-                <a href="https://x.com/udar_aid" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-                <a href="https://www.instagram.com/udaraidusa/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
-          </div>
         </div>
-      </footer>
+    </footer>
 
     <script>
         $(document).ready(function() {
@@ -240,21 +418,34 @@
                 },
                 community: {
                     title: "Community Recovery Stories",
-                    description: "We share inspiring stories of resilience and recovery from the communities we support, highlighting the strength and determination of individuals overcoming challenges."
+                    description: "Stories of resilience and recovery from our supported communities."
                 }
             };
 
-            $('.read-more').on('click', function() {
+            $('.read-more').click(function() {
                 const project = $(this).data('project');
                 $('#modal-title').text(projectDetails[project].title);
                 $('#modal-description').text(projectDetails[project].description);
-                $('#project-modal').removeClass('hidden');
+                $('#project-modal').css('display', 'flex');
             });
 
-            $('#close-modal').on('click', function() {
-                $('#project-modal').addClass('hidden');
+            $('#close-modal').click(function() {
+                $('#project-modal').hide();
             });
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
-</html> 
+</html>

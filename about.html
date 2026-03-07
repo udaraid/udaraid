@@ -4,203 +4,330 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Amar Bangladesh Foundation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-    <!-- Header with Navigation -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-gray-700 hover:text-green-600">Home</a></li>
-                    <li><a href="projects.html" class="text-gray-700 hover:text-green-600">Projects</a></li>
-                    <li><a href="donate.html" class="text-gray-700 hover:text-green-600">Donate</a></li>
-                    <li><a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a></li>
-                    <li><a href="events.html" class="text-gray-700 hover:text-green-600">Events</a></li>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --brand-900: #0f3d2e;
+        --brand-700: #166948;
+        --brand-500: #1f9a63;
+        --brand-300: #87d4b2;
+        --ink-900: #0f1c16;
+        --ink-700: #2a3a33;
+        --ink-500: #4a5b52;
+        --sand-50: #f7f5f0;
+        --sand-100: #f0ede6;
+        --sun-200: #f5d77a;
+        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
+        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
 
-                </ul>
+      body {
+        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+        background: var(--sand-50);
+        color: var(--ink-900);
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        color: var(--ink-900);
+        letter-spacing: -0.01em;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
+          var(--sand-50);
+      }
+
+      .container-xl {
+        max-width: 1120px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-tight {
+        padding: 56px 0;
+      }
+
+      .nav-link {
+        color: var(--ink-700);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-700);
+      }
+
+      .page-hero {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: var(--brand-700);
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        border: 1px solid rgba(15, 28, 22, 0.05);
+      }
+
+      .footer {
+        background: #111915;
+        color: #e2e6e1;
+      }
+
+      .footer a {
+        color: #b7c2ba;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--sun-200);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          padding: 1rem;
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          border-radius: 0 0 18px 18px;
+        }
+
+        .mobile-menu.active {
+          display: block;
+        }
+
+        .mobile-menu a {
+          display: block;
+          padding: 0.7rem 0;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+    </style>
+</head>
+<body class="page-bg">
+    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
+        <div class="container-xl mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="relative z-50">
+                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
+                </a>
+                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
+                <div class="px-6 py-4">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- About Content -->
-    <main class="container mx-auto px-4">
-        <!-- Banner Section with reduced height and fixed structure -->
-        <section class="bg-green-700 text-white py-8 rounded-lg mb-12">
-            <div class="text-center">
-                <h1 class="text-2xl font-bold mb-2">About Us</h1>
-                <p class="text-emerald-100 max-w-2xl mx-auto">Know our vision, mission and ethos which motivates us to start this organization</p>
+    <main class="pt-24">
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="page-hero px-8 py-10">
+                    <div class="text-white max-w-2xl text-center mx-auto">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-3 text-white">About Us</h1>
+                        <p class="text-emerald-100">Know our vision, mission and ethos which motivates us to start this organization</p>
+                    </div>
+                </div>
             </div>
         </section>
-    
-       
-                
-            </section>            
-            <div class="prose prose-lg max-w-none">
-                <p class="text-gray-600 mb-6">
-                    UDAR, in elaboration United Development Aid and Relief , is a 100% volunteer-based organization by Bangladeshis in the diaspora for the people of Bangladesh. Our organization was born out of the inspiration we found in the resilience and unity of the Bangladeshi people during recent months. Watching ordinary citizens come together, making sacrifices for the greater good, sparked a deep sense of responsibility within us. Whether it's through emergency relief, long-term development projects, or empowering individuals and communities, we are committed to fostering a future where every Bangladeshi has the opportunity to flourish.
-                </p>
 
-                <p class="text-xl font-semibold text-emerald-600 text-center my-8">
-                    At the heart of UDAR is a belief that together, we can make a difference.
-                </p>
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-gray-700 mb-6">
+                        UDAR, in elaboration United Development Aid and Relief , is a 100% volunteer-based organization by Bangladeshis in the diaspora for the people of Bangladesh. Our organization was born out of the inspiration we found in the resilience and unity of the Bangladeshi people during recent months. Watching ordinary citizens come together, making sacrifices for the greater good, sparked a deep sense of responsibility within us. Whether it's through emergency relief, long-term development projects, or empowering individuals and communities, we are committed to fostering a future where every Bangladeshi has the opportunity to flourish.
+                    </p>
 
-                <p class="text-gray-600 mb-6">
-                    We are driven by our values of transparency, compassion, and empowerment. We are committed to complete openness with our supporters, ensuring that every resource is used effectively and accounted for. Guided by compassion, we focus on uplifting those in need, providing care and support to help them through their most difficult times. Most importantly, we believe in empowerment—giving individuals and communities the tools and opportunities they need to thrive and build a stronger, more prosperous Bangladesh for future generations.
-                </p>
+                    <p class="text-xl font-semibold text-emerald-600 text-center my-8">
+                        At the heart of UDAR is a belief that together, we can make a difference.
+                    </p>
 
-                <!-- Values Section -->
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-emerald-600 mb-3">Transparency</h3>
-                        <p class="text-gray-600">Complete openness with our supporters, ensuring effective resource utilization.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-emerald-600 mb-3">Compassion</h3>
-                        <p class="text-gray-600">Uplifting those in need with care and dedicated support.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-emerald-600 mb-3">Empowerment</h3>
-                        <p class="text-gray-600">Providing tools and opportunities for communities to thrive.</p>
+                    <p class="text-gray-700 mb-6">
+                        We are driven by our values of transparency, compassion, and empowerment. We are committed to complete openness with our supporters, ensuring that every resource is used effectively and accounted for. Guided by compassion, we focus on uplifting those in need, providing care and support to help them through their most difficult times. Most importantly, we believe in empowerment—giving individuals and communities the tools and opportunities they need to thrive and build a stronger, more prosperous Bangladesh for future generations.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8 mt-12">
+                        <div class="card p-6">
+                            <h3 class="text-lg font-semibold text-emerald-600 mb-3">Transparency</h3>
+                            <p class="text-gray-600">Complete openness with our supporters, ensuring effective resource utilization.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-semibold text-emerald-600 mb-3">Compassion</h3>
+                            <p class="text-gray-600">Uplifting those in need with care and dedicated support.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h3 class="text-lg font-semibold text-emerald-600 mb-3">Empowerment</h3>
+                            <p class="text-gray-600">Providing tools and opportunities for communities to thrive.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
+                <div class="max-w-6xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-12">Core Group Members</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="card overflow-hidden">
+                            <div class="aspect-w-1 aspect-h-1 bg-gray-200">
+                                <img 
+                                    src="https://placehold.co/400x400" 
+                                    alt="Core Member 2"
+                                    class="w-full h-full object-cover"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Sanjida Elahee</h3>
+                                <p class="text-emerald-600 mb-3">Secretary</p>
+                                <p class="text-gray-600">Sanjida is a multifaceted individual who balances her career as a chemist with her role as a social activist. Guided by her faith and a deep sense of humanity, she believes that our collective responsibility is to ensure the well-being of all people. Her commitment to fostering a culture of care and compassion is a cornerstone of UDAR Aid's values.</p>
+                            </div>
+                        </div>
+
+                        <div class="card overflow-hidden">
+                            <div class="aspect-w-1 aspect-h-1 bg-gray-200">
+                                <img 
+                                    src="https://placehold.co/400x400" 
+                                    alt="Core Member 3"
+                                    class="w-full h-full object-cover"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Moinuddin Shuvo</h3>
+                                <p class="text-emerald-600 mb-3">Director of Operations</p>
+                                <p class="text-gray-600">Moinuddin is a graduate student in the Electrical Engineering program at the University of Delaware. Through UDAR Aid, he aims to raise awareness among the Bangladeshi diaspora about the current crisis in Bangladesh and mobilize resources to provide sustainable support to the most vulnerable communities.</p>
+                            </div>
+                        </div>
+
+                        <div class="card overflow-hidden">
+                            <div class="aspect-w-1 aspect-h-1 bg-gray-200">
+                                <img 
+                                    src="https://placehold.co/400x400" 
+                                    alt="Core Member 4"
+                                    class="w-full h-full object-cover"
+                                >
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Suhail Mahmud</h3>
+                                <p class="text-emerald-600 mb-3">Treasurer</p>
+                                <p class="text-gray-600">Suhail is a dedicated student pursuing a Bachelor of Science in Computer Science at the University of Delaware. His technical expertise and attention to detail ensure the organization’s financial transparency and accountability. Suhail is passionate about using his skills to make a positive impact in Bangladesh.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Team Sections -->
-    <section class="container mx-auto px-4 py-12">
-        <!-- Core Group Members -->
-        <div class="max-w-6xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Core Group Members</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Core Member 1 -->
-                <!-- <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="aspect-w-1 aspect-h-1 bg-gray-200">
-                        <img 
-                            src="https://placehold.co/400x400" 
-                            alt="Core Member 1"
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Abrar E</h3>
-                        <p class="text-emerald-600 mb-3">President</p>
-                        <p class="text-gray-600">Abrar is a driven young Muslim entrepreneur whose passion for creating positive change was ignited by the July revolution. With a strong vision and unwavering work ethic, Abrar is dedicated to empowering UDAR Aid to make a meaningful impact in supporting those in need. His leadership is the driving force behind the organization's mission to uplift communities.</p>
+    <footer class="footer py-16">
+        <div class="container-xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
+                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
+                        <li>Delaware, USA</li>
+                        <li>Email: contact@udaraid.org</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
+                        <a href="https://x.com/udar_aid">Twitter</a>
+                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
                     </div>
                 </div>
- -->
-                <!-- Core Member 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="aspect-w-1 aspect-h-1 bg-gray-200">
-                        <img 
-                            src="https://placehold.co/400x400" 
-                            alt="Core Member 2"
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Sanjida Elahee</h3>
-                        <p class="text-emerald-600 mb-3">Secretary</p>
-                        <p class="text-gray-600">Sanjida is a multifaceted individual who balances her career as a chemist with her role as a social activist. Guided by her faith and a deep sense of humanity, she believes that our collective responsibility is to ensure the well-being of all people. Her commitment to fostering a culture of care and compassion is a cornerstone of UDAR Aid's values.</p>
-                    </div>
-                </div>
-
-                <!-- Core Member 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="aspect-w-1 aspect-h-1 bg-gray-200">
-                        <img 
-                            src="https://placehold.co/400x400" 
-                            alt="Core Member 3"
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Moinuddin Shuvo</h3>
-                        <p class="text-emerald-600 mb-3">Fund Distribuition Manager</p>
-                        <p class="text-gray-600">Shuvo, a mechanical engineer from Bangladesh, has long been driven by a desire to contribute to the well-being of Muslim communities. By joining UDAR Aid, he has turned his vision into reality, making significant contributions to the organization's mission. His dedication to ensuring effective and equitable distribution of resources is crucial to UDAR Aid's success.</p>
-                    </div>
-                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
+                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Advisory Members -->
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Advisory Members</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Advisory Member 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="aspect-w-1 aspect-h-1 bg-gray-200">
-                        <img 
-                            src="https://placehold.co/300x300" 
-                            alt="Advisory Member 1"
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold mb-1">Shams Ahmed</h3>
-                        <p class="text-emerald-600 text-sm mb-2">IT and Resources</p>
-                        <p class="text-gray-600 text-sm">Shams Ahmed, a proud Bangladeshi at heart, has always been driven by a deep desire to support those in need. His passion for contributing to non-profit organizations makes him an invaluable addition to UDAR Aid as an advisor. His commitment to fostering positive change aligns perfectly with the organization's mission.</p>
-                    </div>
-                </div>
+    <script>
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
 
-                <!-- Advisory Member 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="aspect-w-1 aspect-h-1 bg-gray-200">
-                        <img 
-                            src="https://placehold.co/300x300" 
-                            alt="Advisory Member 2"
-                            class="w-full h-full object-cover"
-                        >
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold mb-1">Zahid B. Zamir</h3>
-                        <p class="text-emerald-600 text-sm mb-2">Education and Research</p>
-                        <p class="text-gray-600 text-sm">Zahid B. Zamir is an educator with a profound sense of purpose, believing that knowledge and guidance are essential tools for empowering individuals. As an advisor to UDAR Aid, he brings his expertise and dedication to helping others, further enriching the organization's ability to make a meaningful impact.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> 
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4">
-          <div class="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
-              <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul class="space-y-2 text-gray-400">
-                <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
-                <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
-                <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
-                <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Contact</h3>
-              <ul class="space-y-2 text-gray-400">
-                <li>Delaware, USA</li>
-                <li>Email: contact@udaraid.org</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-              <div class="flex space-x-4 mt-4">
-                <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-                <a href="https://x.com/udar_aid" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-                <a href="https://www.instagram.com/udaraidusa/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      document.addEventListener('click', (e) => {
+        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    </script>
 </body>
-</html> 
+</html>

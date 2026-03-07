@@ -2,166 +2,314 @@
 <html lang="en">
 <head>
     <!-- Start of CharityStack Embed -->
-  <script type="text/javascript" defer id="charitystack-embed" data-id="M_XMyLnyEaLb" src="https://prod-donation-elements-b-donationelementsjsfilesb-1m4f4dl6p6b21.s3.us-east-2.amazonaws.com/bundle.js"></script>
-  <!-- End of CharityStack Embed-->
+    <script type="text/javascript" defer id="charitystack-embed" data-id="M_XMyLnyEaLb" src="https://prod-donation-elements-b-donationelementsjsfilesb-1m4f4dl6p6b21.s3.us-east-2.amazonaws.com/bundle.js"></script>
+    <!-- End of CharityStack Embed-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate - UDAR Foundation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Safari-specific fix - minimal styles added -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @supports (-webkit-hyphens:none) {
-            header, footer, nav {
-                display: block !important;
-                visibility: visible !important;
-            }
-            .container, .grid {
-                display: grid !important;
-            }
-            /* Add only this one line */
-            header .container {
-                display: flex !important;
-                flex-wrap: wrap; /* Ensure it adapts in Safari */
-                justify-content: space-between;
-                align-items: center;
-            }
-    }
-        
+      :root {
+        --brand-900: #0f3d2e;
+        --brand-700: #166948;
+        --brand-500: #1f9a63;
+        --brand-300: #87d4b2;
+        --ink-900: #0f1c16;
+        --ink-700: #2a3a33;
+        --ink-500: #4a5b52;
+        --sand-50: #f7f5f0;
+        --sand-100: #f0ede6;
+        --sun-200: #f5d77a;
+        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
+        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
+
+      body {
+        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+        background: var(--sand-50);
+        color: var(--ink-900);
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        color: var(--ink-900);
+        letter-spacing: -0.01em;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
+          var(--sand-50);
+      }
+
+      .container-xl {
+        max-width: 1120px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-tight {
+        padding: 56px 0;
+      }
+
+      .nav-link {
+        color: var(--ink-700);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-700);
+      }
+
+      .page-hero {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: var(--brand-700);
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        border: 1px solid rgba(15, 28, 22, 0.05);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: rgba(135, 212, 178, 0.25);
+        color: var(--brand-700);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .footer {
+        background: #111915;
+        color: #e2e6e1;
+      }
+
+      .footer a {
+        color: #b7c2ba;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--sun-200);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          padding: 1rem;
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          border-radius: 0 0 18px 18px;
+        }
+
+        .mobile-menu.active {
+          display: block;
+        }
+
+        .mobile-menu a {
+          display: block;
+          padding: 0.7rem 0;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-emerald-600 hover:text-emerald-700 text-lg font-semibold">&larr; Back to Home</a>
-            <nav>
-                <ul class="flex space-x-6 text-lg font-medium">
-                    <li><a href="index.html" class="hover:text-emerald-600">Home</a></li>
-                    <li><a href="projects.html" class="hover:text-emerald-600">Projects</a></li>
-                    <li><a href="about.html" class="hover:text-emerald-600">About Us</a></li>
-                    <li><a href="gallery.html" class="hover:text-emerald-600">Gallery</a></li>
-                    <li><a href="events.html" class="hover:text-emerald-600">Events</a></li>
-                </ul>
+<body class="page-bg">
+    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
+        <div class="container-xl mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="relative z-50">
+                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
+                </a>
+                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
+                <div class="px-6 py-4">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </div>
             </nav>
         </div>
     </header>
 
-    <section class="relative bg-gradient-to-r from-green-600 to-emerald-500 py-16 text-white text-center">
-        <div class="absolute top-16 left-4 bg-white text-green-600 px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            Zakat Eligible
-        </div>
-        <div class="absolute top-16 right-4 bg-white text-green-600 px-6 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            100% Donation Policy
-        </div>
-        <div class="container mx-auto px-6">
-            <h1 class="text-5xl font-bold leading-tight mb-4">Make a Difference Today</h1>
-            <p class="text-lg max-w-2xl mx-auto">Your contributions help us transform lives and create lasting impacts in communities worldwide.</p>
-        </div>
-    </section>
+    <main class="pt-24">
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="page-hero px-8 py-10">
+                    <div class="text-white max-w-2xl text-center mx-auto">
+                        <h1 class="text-4xl font-bold mb-4 text-white">Make a Difference Today</h1>
+                        <p class="text-lg text-emerald-100">Your contributions help us transform lives and create lasting impacts in communities worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- New Section for Bank Account Information -->
-    <section class="container mx-auto px-6 py-8 text-center bg-white border border-gray-300 rounded-lg shadow-lg mb-8 mt-8">
-        <h2 class="text-3xl font-bold mb-4">Support Us Directly</h2>
-        <p class="text-lg font-medium mb-4">To avoid platform fees, please consider sending your donations directly to the UDAR Bank Account using Zelle.</p>
-        <p class="text-lg font-medium">Zelle ID: <a href="mailto:Donate@udaraid.org" class="text-emerald-600 hover:text-emerald-700 font-semibold">Donate@udaraid.org</a></p>
-        <p class="text-sm mt-4 italic">*Please include your donation type in the notes for proper allocation. For example, if you are sending 100 dollar for Zakat, please mention "Zakat" in the notes.*</p>
-    </section>
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:justify-between gap-4">
+                    <div class="badge">Zakat Eligible</div>
+                    <div class="badge">100% Donation Policy</div>
+                </div>
+            </div>
+        </section>
 
-    <section class="container mx-auto px-6 py-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-green-500">
-            <h2 class="text-2xl font-bold mb-4">Zakat</h2>
-            <p class="text-gray-600 mb-4">Help fulfill your religious obligation by donating Zakat to those in need.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="e79db605-4ef5-498b-ae2c-e1638184f908"></div>
-                        
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-blue-500">
-            <h2 class="text-2xl font-bold mb-4">Sadaqah</h2>
-            <p class="text-gray-600 mb-4">Give voluntary charity and support underprivileged communities.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="c3c68e51-ade7-4245-a121-470154f575db"></div>
-        </div>
-        <!-- <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-yellow-500">
-            <h2 class="text-2xl font-bold mb-4">Ramadan Food Program</h2>
-            <p class="text-gray-600 mb-4">Support Needy people in this Ramadan by buying them food basket and essentials.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="d8da18da-c2a5-44bf-9570-b8742f505c81"></div> -->
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-red-500">
-            <h2 class="text-2xl font-bold mb-4">July Revolution Rehabilitation support</h2>
-            <p class="text-gray-600 mb-4">Support July Revolution affected with medical aids and long to short term sponsorship.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="efbe5d52-e5b0-42f7-b74c-e1e4d80027d3"></div>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-purple-500">
-            <h2 class="text-2xl font-bold mb-4">Emergency Relief</h2>
-            <p class="text-gray-600 mb-4">Assist in providing immediate aid during natural disasters and crises.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="31f69d75-5adb-480c-8e4d-924040b6d9e8"></div>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-red-500">
-            <h2 class="text-2xl font-bold mb-4">General Donation</h2>
-            <p class="text-gray-600 mb-4">General donation to help on any present issue to support poor and needy people.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="10995400-2d07-45f9-8061-a2da138cb7cc"></div>        </div>
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="card p-8 text-center">
+                    <h2 class="text-3xl font-bold mb-4">Support Us Directly</h2>
+                    <p class="text-lg font-medium mb-4">To avoid platform fees, please consider sending your donations directly to the UDAR Bank Account using Zelle.</p>
+                    <p class="text-lg font-medium">Zelle ID: <a href="mailto:Donate@udaraid.org" class="text-emerald-600 hover:text-emerald-700 font-semibold">Donate@udaraid.org</a></p>
+                    <p class="text-sm mt-4 italic">*Please include your donation type in the notes for proper allocation. For example, if you are sending 100 dollar for Zakat, please mention "Zakat" in the notes.*</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 ease-in-out border-l-4 border-purple-500">
-            <h2 class="text-2xl font-bold mb-4">Last 10 days of Ramadan</h2>
-            <p class="text-gray-600 mb-4">Donate at the last 10 days of Ramadan for Maximum Reward.</p>
-            <div data-entity="EMBED_FORM" data-source="CharityStack" id="0c5c05e3-c9e9-4ec5-b4eb-0b97334983af"></div>
-        </div> -->
-    </section>
+        <section class="section">
+            <div class="container-xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6 text-center border-l-4" style="border-left-color: var(--brand-500);">
+                    <h2 class="text-2xl font-bold mb-4">Zakat</h2>
+                    <p class="text-gray-600 mb-4">Help fulfill your religious obligation by donating Zakat to those in need.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="e79db605-4ef5-498b-ae2c-e1638184f908"></div>
+                </div>
+                <div class="card p-6 text-center border-l-4" style="border-left-color: #3b82f6;">
+                    <h2 class="text-2xl font-bold mb-4">Sadaqah</h2>
+                    <p class="text-gray-600 mb-4">Give voluntary charity and support underprivileged communities.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="c3c68e51-ade7-4245-a121-470154f575db"></div>
+                </div>
+                <div class="card p-6 text-center border-l-4" style="border-left-color: #f59e0b;">
+                    <h2 class="text-2xl font-bold mb-4">Eid Food Program</h2>
+                    <p class="text-gray-600 mb-4">Support Needy people in this Ramadan by buying them food basket and essentials.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="d8da18da-c2a5-44bf-9570-b8742f505c81"></div>
+                </div>
+                <div class="card p-6 text-center border-l-4" style="border-left-color: #ef4444;">
+                    <h2 class="text-2xl font-bold mb-4">July Revolution Rehabilitation support</h2>
+                    <p class="text-gray-600 mb-4">Support July Revolution affected with medical aids and long to short term sponsorship.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="efbe5d52-e5b0-42f7-b74c-e1e4d80027d3"></div>
+                </div>
+                <div class="card p-6 text-center border-l-4" style="border-left-color: #ef4444;">
+                    <h2 class="text-2xl font-bold mb-4">General Donation</h2>
+                    <p class="text-gray-600 mb-4">General donation to help on any present issue to support poor and needy people.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="10995400-2d07-45f9-8061-a2da138cb7cc"></div>
+                </div>
+                <div class="card p-6 text-center border-l-4" style="border-left-color: #7c3aed;">
+                    <h2 class="text-2xl font-bold mb-4">Last 10 nights of Ramadan</h2>
+                    <p class="text-gray-600 mb-4">Donate at the last 10 days of Ramadan for Maximum Reward.</p>
+                    <div data-entity="EMBED_FORM" data-source="CharityStack" id="0c5c05e3-c9e9-4ec5-b4eb-0b97334983af"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4">
+    <footer class="footer py-16">
+        <div class="container-xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
-                    <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
+                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
-                        <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
-                        <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
-                        <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
-                        <li><a href="events.html" class="hover:text-white">Events</a></li>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <ul class="space-y-2 text-gray-400">
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
                         <li>Delaware, USA</li>
                         <li>Email: contact@udaraid.org</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
                     <div class="flex space-x-4 mt-4">
-                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-                        <a href="https://x.com/udar_aid" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-                        <a href="https://www.instagram.com/udaraidusa/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
+                        <a href="https://x.com/udar_aid">Twitter</a>
+                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
                 <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Simple script to ensure Safari rendering -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Force Safari to redraw elements
-            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-                setTimeout(function() {
-                    document.querySelector('header').style.display = 'block';
-                    document.querySelector('header').style.visibility = 'visible';
-                    document.querySelector('footer').style.display = 'block';
-                    document.querySelector('footer').style.visibility = 'visible';
-                    document.querySelector('nav').style.display = 'block';
-                    document.querySelector('nav').style.visibility = 'visible';
-                }, 100);
-            }
-        });
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
     </script>
 </body>
 </html>

@@ -4,114 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - UDAR Aid</title>
-
-    <!-- Tailwind CSS Integration -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+      :root {
+        --brand-900: #0f3d2e;
+        --brand-700: #166948;
+        --brand-500: #1f9a63;
+        --brand-300: #87d4b2;
+        --ink-900: #0f1c16;
+        --ink-700: #2a3a33;
+        --ink-500: #4a5b52;
+        --sand-50: #f7f5f0;
+        --sand-100: #f0ede6;
+        --sun-200: #f5d77a;
+        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
+        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
+
+      body {
+        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+        background: var(--sand-50);
+        color: var(--ink-900);
+      }
+
+      h1, h2, h3 {
+        font-family: "Fraunces", serif;
+        color: var(--ink-900);
+        letter-spacing: -0.01em;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
+          var(--sand-50);
+      }
+
+      .container-xl {
+        max-width: 1120px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-tight {
+        padding: 56px 0;
+      }
+
+      .nav-link {
+        color: var(--ink-700);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-700);
+      }
+
+      .page-hero {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: var(--brand-700);
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        border: 1px solid rgba(15, 28, 22, 0.05);
+      }
+
+      .footer {
+        background: #111915;
+        color: #e2e6e1;
+      }
+
+      .footer a {
+        color: #b7c2ba;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      select:focus-visible,
+      input:focus-visible {
+        outline: 3px solid var(--sun-200);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
         }
-        /* ADD THE NEW MOBILE STYLES HERE */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
 
-            .event-card {
-                width: 100% !important;
-                margin: 1rem 0;
-            }
-
-            .fundraiser-card {
-                width: 100% !important;
-                margin: 1rem 0;
-            }
-
-            main {
-                padding-top: 5rem;
-            }
-
-            .py-24 {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-
-            .px-6 {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .text-4xl {
-                font-size: 2rem;
-            }
-
-            .grid {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .md\:grid-cols-2,
-            .lg\:grid-cols-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
+        .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          padding: 1rem;
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          border-radius: 0 0 18px 18px;
         }
+
+        .mobile-menu.active {
+          display: block;
+        }
+
+        .mobile-menu a {
+          display: block;
+          padding: 0.7rem 0;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
     </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-white shadow-md fixed top-0 left-0 right-0 w-full z-50">
-        <div class="px-4 py-4">
+<body class="page-bg">
+    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
+        <div class="container-xl mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-emerald-600 hover:text-emerald-700">← Back to Home</a>
-                <nav class="desktop-menu hidden md:flex space-x-6">
-                    <a href="projects.html" class="text-gray-700 hover:text-green-600">Projects</a>
-                    <a href="about.html" class="text-gray-700 hover:text-green-600">About Us</a>
-                    <a href="donate.html" class="text-gray-700 hover:text-green-600">Donate</a>
-                    <a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a>
-
+                <a href="index.html" class="relative z-50">
+                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
+                </a>
+                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
                 </nav>
-                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none" id="mobile-menu-button">
+                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
                     </svg>
                 </button>
             </div>
+            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
+                <div class="px-6 py-4">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="donate.html" class="nav-link">Donate</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="events.html" class="nav-link">Events</a>
+                </div>
+            </nav>
         </div>
-        <nav class="mobile-menu md:hidden bg-white shadow-lg" id="mobile-menu">
-            <div class="px-4 py-2">
-                <a href="projects.html" class="text-gray-700 hover:text-green-600 block py-2">Projects</a>
-                <a href="about.html" class="text-gray-700 hover:text-green-600 block py-2">About Us</a>
-                <a href="donate.html" class="text-gray-700 hover:text-green-600 block py-2">Donate</a>
-                <a href="gallery.html" class="text-gray-700 hover:text-green-600 block py-2">Gallery</a>
-                <a href="events.html" class="text-gray-700 hover:text-green-600 block py-2">Events</a>
-            </div>
-        </nav>
     </header>
 
-    <main class="pt-16">
-        <section class="text-center bg-green-700 text-white py-12">
-            <h1 class="text-4xl font-bold mb-4">Upcoming Events</h1>
-            <p class="text-lg">Stay updated with our latest events and initiatives.</p>
+    <main class="pt-24">
+        <section class="section-tight">
+            <div class="container-xl mx-auto px-6">
+                <div class="page-hero px-8 py-10">
+                    <div class="text-white max-w-2xl text-center mx-auto">
+                        <h1 class="text-4xl font-bold mb-4 text-white">Upcoming Events</h1>
+                        <p class="text-lg text-emerald-100">Stay updated with our latest events and initiatives.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="py-24 px-6">
-            <div class="container mx-auto">
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Events</h2>
-                
-                <!-- Event Filtering -->
+
                 <div class="mb-6">
                     <label for="event-filter" class="text-gray-600">Filter by Category:</label>
                     <select id="event-filter" class="ml-2 p-2 border rounded">
@@ -123,161 +205,153 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Event 1 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="card">
                         <img src="./images/event-1.jpg" alt="Event 1" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">Canvas for a Cause - UDAR AID Fundraising Event </h3>
-                            <p class="text-gray-600 mb-4">Date & Time: Sunday, August 17th, 11am-1pm
+                            <p class="text-gray-600 mb-4">Date & Time: Sunday, August 16th, 11am-1pm
                                 Location:Moka & Co. 142 W 34th St., New York, NY 10001 </p>
                             <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown1">5 days</span></p>
-                            <a href="https://partiful.com/e/dJgBT9f26T2AmpoYWKOs" class="text-green-600 hover:underline">Click here for registration</a>
+                            <a href="https://partiful.com/e/dJgBT9f26T2AmpoYWKOs" class="text-green-700 hover:underline">Click here for registration</a>
                         </div>
                     </div>
-                    <!-- Event 2 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="card">
                         <img src="./images/WIC.jpg" alt="Event 2" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">BD Association Islamic Conference Fundraising</h3>
                             <p class="text-gray-600 mb-4">Date & Time: Saturday, February 1st, 6pm-9pm
                                 Location: Worcester Islamic Center, Worcester,MA</p>
                             <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown2">Completed</span></p>
-                            <a href="#" class="text-green-600 hover:underline">Read More</a>
+                            <a href="#" class="text-green-700 hover:underline">Read More</a>
                         </div>
                     </div>
-                    <!-- Event 3 -->
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="card">
                         <img src="./images/event3.jpg" alt="Event 3" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">Upcoming Event at Delaware</h3>
                             <p class="text-gray-600 mb-4">Announce Coming Soon.</p>
                             <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown3">TBD</span></p>
-                            <a href="#" class="text-green-600 hover:underline">Read More</a>
+                            <a href="#" class="text-green-700 hover:underline">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Event Registration Form -->
-        <section class="py-24 px-6">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Register for an Event</h2>
-            <form class="max-w-lg mx-auto">
-                <input type="text" name="name" placeholder="Full Name" class="w-full p-3 border rounded mb-3" required>
-                <input type="email" name="email" placeholder="Email Address" class="w-full p-3 border rounded mb-3" required>
-                <select name="event" class="w-full p-3 border rounded mb-3" required>
-                    <option value="" disabled selected>Select Event</option>
-                    <option value="event1">Event Title 1</option>
-                    <option value="event2">Event Title 2</option>
-                    <option value="event3">Event Title 3</option>
-                </select>
-                <button type="submit" class="w-full bg-green-700 text-white py-3 rounded">Register Now</button>
-            </form>
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Register for an Event</h2>
+                <form class="max-w-lg mx-auto">
+                    <input type="text" name="name" placeholder="Full Name" class="w-full p-3 border rounded mb-3" required>
+                    <input type="email" name="email" placeholder="Email Address" class="w-full p-3 border rounded mb-3" required>
+                    <select name="event" class="w-full p-3 border rounded mb-3" required>
+                        <option value="" disabled selected>Select Event</option>
+                        <option value="event1">Event Title 1</option>
+                        <option value="event2">Event Title 2</option>
+                        <option value="event3">Event Title 3</option>
+                    </select>
+                    <button type="submit" class="w-full text-white py-3 rounded" style="background: var(--brand-700);">Register Now</button>
+                </form>
+            </div>
         </section>
 
-       <!-- Online Fundraiser Section -->
-<section class="py-24 px-6 bg-green-800 text-white text-center">
-    <h2 class="text-3xl font-bold mb-6">Online Fundraiser</h2>
-    <p class="text-lg mb-4">Join us in our online fundraising efforts to support various causes that uplift and empower communities in Bangladesh. Your contributions can make a significant impact!</p>
-    <p class="text-lg mb-6">We are committed to transparency and ensuring that every donation goes directly to those in need. Together, we can create positive change!</p>
-    <a href="#" class="inline-block bg-gray-800 text-white py-3 px-6 rounded text-lg hover:bg-gray-700 transition duration-300">Get Involved</a>
-</section>
+        <section class="section" style="background: linear-gradient(120deg, #0f3d2e, #1f9a63);">
+            <div class="container-xl mx-auto px-6 text-center text-white">
+                <h2 class="text-3xl font-bold mb-6 text-white">Online Fundraiser</h2>
+                <p class="text-lg mb-4">Join us in our online fundraising efforts to support various causes that uplift and empower communities in Bangladesh. Your contributions can make a significant impact!</p>
+                <p class="text-lg mb-6">We are committed to transparency and ensuring that every donation goes directly to those in need. Together, we can create positive change!</p>
+                <a href="#" class="inline-block bg-gray-900 text-white py-3 px-6 rounded text-lg hover:bg-gray-800 transition duration-300">Get Involved</a>
+            </div>
+        </section>
 
-<!-- Fundraising Events Section -->
-<section class="py-24 px-6">
-    <div class="flex flex-wrap justify-center gap-8">
-        <!-- Fundraising Event 1 -->
-        <div class="w-full md:w-1/2 lg:w-2/5">
-            <div class="bg-green-700 text-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 p-4">
-                <h2 class="text-3xl font-bold mb-6 text-center">Support the Heroes of Bangladesh's Freedom Movement</h2>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="./images/fundraiser.png" alt="Support Victims Fundraiser" class="w-full h-56 object-cover">
-                    <div class="p-6 text-gray-700">
-                        <h3 class="text-xl font-semibold mb-2">Urgent Rehabilitation Support</h3>
-                        <p class="mb-4">We are raising funds to support individuals whose lives have been upended by the recent struggles in Bangladesh. Your contribution can help provide urgent medical treatments, rehabilitation, and basic needs for these victims and their families.</p>
-                        <a href="https://www.gofundme.com/f/support-victims-of-bangladeshs-fight-for-freedom" target="_blank" class="block bg-gray-800 text-white py-3 rounded text-center hover:bg-green-700 transition duration-300">Donate Now</a>
+        <section class="section">
+            <div class="container-xl mx-auto px-6">
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="w-full md:w-1/2 lg:w-2/5">
+                        <div class="card p-4" style="background: var(--brand-700); color: white;">
+                            <h2 class="text-3xl font-bold mb-6 text-center text-white">Support the Heroes of Bangladesh's Freedom Movement</h2>
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                <img src="./images/fundraiser.png" alt="Support Victims Fundraiser" class="w-full h-56 object-cover">
+                                <div class="p-6 text-gray-700">
+                                    <h3 class="text-xl font-semibold mb-2">Urgent Rehabilitation Support</h3>
+                                    <p class="mb-4">We are raising funds to support individuals whose lives have been upended by the recent struggles in Bangladesh. Your contribution can help provide urgent medical treatments, rehabilitation, and basic needs for these victims and their families.</p>
+                                    <a href="https://www.gofundme.com/f/support-victims-of-bangladeshs-fight-for-freedom" target="_blank" class="block bg-gray-900 text-white py-3 rounded text-center hover:bg-green-700 transition duration-300">Donate Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 lg:w-2/5">
+                        <div class="card p-4" style="background: var(--brand-700); color: white;">
+                            <h2 class="text-3xl font-bold mb-6 text-center text-white">Ramadan Food Program for Needy People</h2>
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                <img src="./images/ramadan.jpg" alt="Ramadan Food Program" class="w-full h-56 object-cover">
+                                <div class="p-6 text-gray-700">
+                                    <h3 class="text-xl font-semibold mb-2">Support Our Ramadan Food Program</h3>
+                                    <p class="mb-4">As we enter the blessed month of Ramadan, we aim to provide nourishing meals to families struggling with hunger and poverty. Your contribution can make a profound difference in the lives of those in need.</p>
+                                    <p class="mb-4">Help us reach our goal of supporting 200 families with essential food supplies. Every donation counts!</p>
+                                    <a href="https://www.gofundme.com/f/ramadan-food-program-for-needy-people?qid=e751918e1882dc2866296b3684e603c1" target="_blank" class="block bg-gray-900 text-white py-3 rounded text-center hover:bg-green-600 transition duration-300">Donate Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Fundraising Event 2 -->
-        <div class="w-full md:w-1/2 lg:w-2/5">
-            <div class="bg-green-700 text-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 p-4">
-                <h2 class="text-3xl font-bold mb-6 text-center">Ramadan Food Program for Needy People</h2>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="./images/ramadan.jpg" alt="Ramadan Food Program" class="w-full h-56 object-cover">
-                    <div class="p-6 text-gray-700">
-                        <h3 class="text-xl font-semibold mb-2">Support Our Ramadan Food Program</h3>
-                        <p class="mb-4">As we enter the blessed month of Ramadan, we aim to provide nourishing meals to families struggling with hunger and poverty. Your contribution can make a profound difference in the lives of those in need.</p>
-                        <p class="mb-4">Help us reach our goal of supporting 200 families with essential food supplies. Every donation counts!</p>
-                        <a href="https://www.gofundme.com/f/ramadan-food-program-for-needy-people?qid=e751918e1882dc2866296b3684e603c1" target="_blank" class="block bg-gray-800 text-white py-3 rounded text-center hover:bg-green-600 transition duration-300">Donate Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4">
+    <footer class="footer py-16">
+        <div class="container-xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">About UDAR</h3>
-                    <p class="text-gray-400">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
+                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
+                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="projects.html" class="hover:text-[#27AE60]">Projects</a></li>
-                        <li><a href="about.html" class="hover:text-[#27AE60]">About Us</a></li>
-                        <li><a href="donate.html" class="hover:text-[#27AE60]">Donate</a></li>
-                        <li><a href="gallery.html" class="hover:text-white">Gallery</a></li>
-                        <li><a href="events.html" class="hover:text-white">Events</a></li>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <ul class="space-y-2 text-gray-400">
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
                         <li>Delaware, USA</li>
                         <li>Email: contact@udaraid.org</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
                     <div class="flex space-x-4 mt-4">
-                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-                        <a href="https://x.com/udar_aid" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-                        <a href="https://www.instagram.com/udaraidusa/" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
+                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
+                        <a href="https://x.com/udar_aid">Twitter</a>
+                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
                 <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenu.style.display = 'none';
-            
-            mobileMenuButton.addEventListener('click', function(event) {
-                event.stopPropagation();
-                mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
-            });
-            
-            document.addEventListener('click', function(event) {
-                if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
-                    mobileMenu.style.display = 'none';
-                }
-            });
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
-</html> 
+</html>
