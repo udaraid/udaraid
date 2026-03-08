@@ -85,6 +85,20 @@
         overflow: hidden;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         border: 1px solid rgba(15, 28, 22, 0.05);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .card img {
+        width: 100%;
+        height: 224px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card .p-6 {
+        flex: 1;
       }
 
       .card:hover {
@@ -225,134 +239,103 @@
                     <div class="text-white max-w-2xl text-center mx-auto">
                         <h1 class="text-4xl font-bold mb-4 text-white">Our Projects</h1>
                         <p class="text-emerald-100">Stay informed about our latest initiatives, success stories, and the impact we're making together across Bangladesh.</p>
-                    </div>
+                    
+</div>
                 </div>
             </div>
         </section>
 
         <section class="section">
             <div class="container-xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold">Past Projects</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Highlights from the UDAR AID Anniversary Report.</p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <div class="h-56 overflow-hidden">
-                            <img 
-                                src="./images/flood-relief.jpg" 
-                                alt="Flood Relief Project" 
-                                class="w-full h-full object-cover"
-                            />
-                        </div>
+                        <img src="./images/IMG_2203.JPG" alt="Emergency medical attention" class="w-full h-56 object-cover block">
                         <div class="p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="tag">Emergency Relief</span>
-                                <span class="text-sm text-gray-500 ml-4">March 15, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Flood Relief: Making a Difference in Noakhali</h3>
-                            <p class="text-gray-600 mb-4">
-                                Our emergency response team is providing immediate assistance to flood-affected communities in Noakhali region.
-                            </p>
-                            <div class="space-y-3 mb-4">
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    <span>500+ families supported</span>
-                                </div>
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                    </svg>
-                                    <span>3 districts covered</span>
-                                </div>
-                            </div>
-                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="flood">
-                                Read More 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </button>
+                            <h3 class="text-2xl font-bold mb-3">Emergency Medical Attention for the Injured</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>Your support rushed life‑saving care to revolution survivors—covering surgeries, medications, and recovery costs when families had nowhere else to turn.</li>
+                                <li>292 patients documented</li>
+                                <li>280 received direct financial support</li>
+                                <li>Comprehensive case tracking and follow‑up</li>
+                            </ul>
                         </div>
                     </div>
-
                     <div class="card">
-                        <div class="h-56 overflow-hidden">
-                            <img 
-                                src="./images/student-support.jpg" 
-                                alt="Student Support Program" 
-                                class="w-full h-full object-cover"
-                            />
-                        </div>
+                        <img src="./images/long_term_rehab_1.png" alt="Long-term rehabilitation support" class="w-full h-56 object-cover block">
                         <div class="p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="tag">Education</span>
-                                <span class="text-sm text-gray-500 ml-4">March 10, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Student Support Program Launches</h3>
-                            <p class="text-gray-600 mb-4">
-                                Supporting student protestors with medical aids and long to short term sponsorship.
-                            </p>
-                            <div class="space-y-3 mb-4">
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                                    </svg>
-                                    <span>200+ students supported</span>
-                                </div>
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                    </svg>
-                                    <span>2 Student Organization partnered</span>
-                                </div>
-                            </div>
-                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="student">
-                                Read More 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </button>
+                            <h3 class="text-2xl font-bold mb-3">Long‑Term Rehabilitation Support</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>Monthly sponsorship helped injured families regain stability—covering food, rent, treatment, and children’s education while they rebuilt their lives.</li>
+                                <li>BDT 10,000+ per family monthly</li>
+                                <li>6‑month commitment (Jan–Jun 2025)</li>
+                                <li>Families: Manik & Faruk, Nupur, Mamun, Mufti Firoz</li>
+                            </ul>
                         </div>
                     </div>
-
                     <div class="card">
-                        <div class="h-56 overflow-hidden">
-                            <img 
-                                src="./images/Community.jpg" 
-                                alt="Healthcare Initiatives" 
-                                class="w-full h-full object-cover"
-                            />
-                        </div>
+                        <img src="./images/flood_relief.jpg" alt="Flood fund relief" class="w-full h-56 object-cover block">
                         <div class="p-6">
-                            <div class="flex items-center mb-4">
-                                <span class="tag">Healthcare</span>
-                                <span class="text-sm text-gray-500 ml-4">March 5, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Community Recovery Stories</h3>
-                            <p class="text-gray-600 mb-4">
-                                Stories of resilience and recovery from our supported communities.
-                            </p>
-                            <div class="space-y-3 mb-4">
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                    </svg>
-                                    <span>Multiple patients treated</span>
-                                </div>
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                    </svg>
-                                    <span>2 medical cases helped</span>
-                                </div>
-                            </div>
-                            <button class="text-emerald-700 font-semibold hover:underline transition-colors inline-flex items-center read-more" data-project="community">
-                                Read More 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </button>
+                            <h3 class="text-2xl font-bold mb-3">Flood Fund Relief</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>In the aftermath of the August 2024 floods, your generosity delivered emergency relief packages and restored hope to devastated families.</li>
+                                <li>300+ families received emergency relief</li>
+                                <li>Food, hygiene kits, clean water, shelter materials</li>
+                                <li>One destroyed home rebuilt</li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="card">
+                        <img src="./images/ramadan_fp.jpg" alt="Ramadan and Eid campaigns" class="w-full h-56 object-cover block">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3">Ramadan & Eid Campaigns</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>You helped families observe sacred days with dignity through iftar meals, groceries, and Eid support for those most in need.</li>
+                                <li>$1,425 total distributed</li>
+                                <li>200+ families benefited</li>
+                                <li>100+ orphan children supported</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./images/individual_crisis.jpg" alt="Individuals in crisis" class="w-full h-56 object-cover block">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3">Individuals in Crisis</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>When emergencies struck, donors stepped in—covering urgent medical bills, disability support, and livelihood restoration for vulnerable families.</li>
+                                <li>Helal’s Campaign: $1,085 raised and distributed</li>
+                                <li>Mr Motiur: $100 support sent in March</li>
+                                <li>Abdul Kader: $328 (BDT 40,000) for a Mishuk</li>
+                                <li>Shahbuddin: family support after severe injuries</li>
+                                <li>Cancer chemotherapy survivor: first session covered ($350)</li>
+                                <li>Nur Mohammad: paralysis support case</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./images/madrasha_1.jpg" alt="Madrassa project" class="w-full h-56 object-cover block">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3">Madrassa Project</h3>
+                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
+                                <li>Supported a remote village madrassa in Kishoreganj (Itna Upazilla) to build a permanent school structure for 70+ students from low‑income families.</li>
+                                <li>Fundraising canvas session in New York helped raise and send 98,289 BDT for construction.</li>
+                                <li>Construction is in full swing; total project need is approximately 3,20,000 BDT.</li>
+                                <li>Students now have a safer, more permanent learning space, especially during monsoon season.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section class="section">
+            <div class="container-xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold">Ongoing Projects</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">We will update this section with current projects soon.</p>
                 </div>
             </div>
         </section>
