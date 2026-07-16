@@ -1,453 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDAR Aid</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --brand-900: #0f3d2e;
-        --brand-700: #166948;
-        --brand-500: #1f9a63;
-        --brand-300: #87d4b2;
-        --ink-900: #0f1c16;
-        --ink-700: #2a3a33;
-        --ink-500: #4a5b52;
-        --sand-50: #f7f5f0;
-        --sand-100: #f0ede6;
-        --sun-200: #f5d77a;
-        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
-        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
-        --radius-lg: 20px;
-        --radius-md: 14px;
-      }
-
-      body {
-        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
-        background: var(--sand-50);
-        color: var(--ink-900);
-      }
-
-      h1, h2, h3 {
-        font-family: "Fraunces", serif;
-        color: var(--ink-900);
-        letter-spacing: -0.01em;
-      }
-
-      .page-bg {
-        background:
-          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
-          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
-          var(--sand-50);
-      }
-
-      .container-xl {
-        max-width: 1120px;
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .section-tight {
-        padding: 56px 0;
-      }
-
-      .nav-link {
-        color: var(--ink-700);
-        font-weight: 600;
-        transition: color 0.2s ease;
-      }
-
-      .nav-link:hover {
-        color: var(--brand-700);
-      }
-
-      .hero {
-        position: relative;
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: var(--shadow-soft);
-        background: var(--brand-700);
-        min-height: 420px;
-        display: flex;
-        align-items: center;
-      }
-
-      .hero-content {
-        max-width: 640px;
-      }
-
-      .hero-quote {
-        background: rgba(15, 61, 46, 0.92);
-        color: #fefefe;
-        border-radius: var(--radius-lg);
-        padding: 28px 32px;
-        box-shadow: var(--shadow-card);
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 28px;
-        border-radius: 999px;
-        font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
-
-      .btn-primary {
-        background: var(--brand-700);
-        color: #fff;
-        box-shadow: 0 10px 18px rgba(22, 105, 72, 0.25);
-      }
-
-      .btn-primary:hover {
-        background: var(--brand-500);
-        transform: translateY(-1px);
-      }
-
-      .btn-secondary {
-        background: #1c2621;
-        color: #fff;
-      }
-
-      .btn-secondary:hover {
-        background: #0f1c16;
-        transform: translateY(-1px);
-      }
-
-      .card {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-card);
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border: 1px solid rgba(15, 28, 22, 0.05);
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 30px rgba(15, 28, 22, 0.15);
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: rgba(135, 212, 178, 0.25);
-        color: var(--brand-700);
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background: rgba(15, 28, 22, 0.6);
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-
-      .modal-content {
-        background: #fff;
-        padding: 28px;
-        border-radius: var(--radius-lg);
-        width: 100%;
-        max-width: 640px;
-        box-shadow: var(--shadow-soft);
-      }
-
-      .close {
-        float: right;
-        font-size: 24px;
-        cursor: pointer;
-        color: var(--ink-700);
-      }
-
-      .close:hover {
-        color: var(--ink-900);
-      }
-
-      .footer {
-        background: #111915;
-        color: #e2e6e1;
-      }
-
-      .footer a {
-        color: #b7c2ba;
-        transition: color 0.2s ease;
-      }
-
-      .footer a:hover {
-        color: #fff;
-      }
-
-      a:focus-visible,
-      button:focus-visible {
-        outline: 3px solid var(--sun-200);
-        outline-offset: 3px;
-        border-radius: 8px;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      @media (max-width: 768px) {
-        .desktop-menu {
-          display: none;
-        }
-
-        .mobile-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background-color: #fff;
-          padding: 1rem;
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-          border-radius: 0 0 18px 18px;
-        }
-
-        .mobile-menu.active {
-          display: block;
-        }
-
-        .mobile-menu a {
-          display: block;
-          padding: 0.7rem 0;
-          text-align: center;
-          font-weight: 600;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UDAR Aid — For Every Child and Family in Bangladesh</title>
+  <meta name="description" content="UDAR (United Development Aid and Relief) is a 100% volunteer-run organization by the Bangladeshi diaspora, delivering emergency relief, rehabilitation, and sustainable development across Bangladesh.">
+  <link rel="icon" type="image/png" href="udaraid_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#ddf3e7', 100: '#a9e2c6', 500: '#27a674', 600: '#1e8a60', 700: '#17694b', 800: '#11543c', 900: '#0b3d2c', 950: '#06231a' },
+            cream: { 50: '#faf8f3', 100: '#f2eee4' }
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
         }
       }
-    </style>
-  </head>
-  <body class="page-bg">
-    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
-      <div class="container-xl mx-auto px-6 py-3">
-        <div class="flex justify-between items-center">
-          <a href="index.html" class="relative z-50">
-            <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
-          </a>
-          <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="about.html" class="nav-link">About Us</a>
-            <a href="donate.html" class="nav-link">Donate</a>
-            <a href="gallery.html" class="nav-link">Gallery</a>
-            <a href="events.html" class="nav-link">Events</a>
-          </nav>
-          <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
-            </svg>
-          </button>
-        </div>
-        <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
-          <div class="px-6 py-4">
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="about.html" class="nav-link">About Us</a>
-            <a href="donate.html" class="nav-link">Donate</a>
-            <a href="gallery.html" class="nav-link">Gallery</a>
-            <a href="events.html" class="nav-link">Events</a>
-          </div>
+    };
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header fixed top-0 inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" aria-label="UDAR Aid home">
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-10 md:h-12 w-auto">
+        </a>
+        <nav class="hidden md:flex items-center gap-7" aria-label="Primary">
+          <a href="index.html" class="nav-link" aria-current="page">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link">Events</a>
+          <a href="donate.html" class="btn btn-primary btn-sm">Donate</a>
         </nav>
+        <button id="menu-btn" class="md:hidden p-2 text-brand-900" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
-    </header>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav md:hidden" aria-label="Mobile">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="donate.html" class="text-brand-700 font-bold">Donate</a>
+    </nav>
+  </header>
 
-    <main class="pt-16">
-      <section class="text-center bg-green-700 text-white py-12">
-        <p class="text-3xl italic">"The believer's shade on the Day of Resurrection will be their charity"</p>
-        <p class="mt-2 text-lg">- (Hadith, Tirmidhi)</p>
-      </section>
+  <main class="pt-16 md:pt-20">
 
-      <section class="py-24 px-6 text-center">
-        <h1 class="text-5xl font-extrabold text-gray-800 mb-6">For Every Child and Family</h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Join us in our mission to heal, rebuild, and empower communities.</p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-          <a href="donate.html" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-500">Make a Difference</a>
-          <a href="about.html" class="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-700">About Us</a>
-        </div>
-      </section>
-    </main>
-
-    <section id="projects" class="section" style="background: linear-gradient(120deg, #0f3d2e, #1f9a63);">
-      <div class="container-xl mx-auto px-6">
-        <div class="text-center mb-12 text-white">
-          <h2 class="text-4xl font-bold text-white">Our Projects</h2>
-          <p class="text-gray-100 max-w-2xl mx-auto">Explore impactful initiatives making a difference in Bangladesh.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card">
-            <img src="./images/flood-relief.jpg" alt="Flood Relief" class="w-full h-56 object-cover">
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3">Flood Relief: Making a Difference in Noakhali</h3>
-              <p class="text-gray-700 mb-4">Providing immediate assistance to flood-affected communities in the flood-affected region.</p>
-              <a href="#" class="text-emerald-700 font-semibold hover:underline read-more" id="flood-relief">Read More</a>
-            </div>
-          </div>
-          <div class="card">
-            <img src="./images/student-support.jpg" alt="Student Support Program" class="w-full h-56 object-cover">
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3">July Revolution rehabilitation support</h3>
-              <p class="text-gray-700 mb-4">Supporting July Revolution protestors with medical aids and long to short term sponsorship.</p>
-              <a href="#" class="text-emerald-700 font-semibold hover:underline read-more" id="student-support">Read More</a>
-            </div>
-          </div>
-          <div class="card">
-            <img src="./images/Community.jpg" alt="Community Recovery Stories" class="w-full h-56 object-cover">
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3">Community Recovery Stories</h3>
-              <p class="text-gray-700 mb-4">Stories of resilience and recovery from our supported communities.</p>
-              <a href="#" class="text-emerald-700 font-semibold hover:underline">Read More</a>
-            </div>
+    <!-- Hero -->
+    <section class="hero-photo">
+      <img src="./images/student-support.jpg" alt="" class="hero-bg" aria-hidden="true">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-24 md:py-36">
+        <div class="max-w-2xl text-white">
+          <p class="eyebrow !text-brand-100 mb-5">United Development Aid &amp; Relief</p>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
+            For every child and family in Bangladesh
+          </h1>
+          <p class="text-lg md:text-xl text-white/85 leading-relaxed mb-9">
+            We are a 100% volunteer-run organization by the Bangladeshi diaspora — joining hands to heal, rebuild, and empower communities through emergency relief and long-term development.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="donate.html" class="btn btn-amber">Make a Difference</a>
+            <a href="projects.html" class="btn btn-ghost-light">Explore Our Work</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Modal for Flood Relief -->
-    <div id="floodModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 class="text-2xl font-bold mb-4">Flood Relief: Making a Difference in Noakhali</h2>
-        <p>Bangladesh has recently experienced one of the most devastating floods in decades, leaving already vulnerable communities in the midst of a severe humanitarian crisis. Entire regions have been submerged, homes destroyed, and families displaced. The catastrophic flooding has overwhelmed local resources, creating an urgent need for both immediate relief and long-term recovery efforts.</p>
-        <p>Many of the areas hardest hit by the floods were already struggling with poverty and limited access to essential resources. These communities, often situated in low-lying regions prone to natural disasters, are now facing the compounded challenges of lost homes, food shortages, and the spread of waterborne diseases. Families have been forced to flee their homes, leaving behind what little they had. The floods have also damaged critical infrastructure, such as roads, schools, and health facilities, further isolating these communities.</p>
+    <!-- Hadith quote -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        <svg class="w-10 h-10 mx-auto mb-6 text-brand-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9.5 8C7 8 5 10 5 12.5S7 17 9.5 17c.4 0 .8-.05 1.17-.15C10.1 18.3 9 19.3 7.5 20l1 1.6c3.1-1.4 5-4.1 5-7.6 0-3.3-1.8-6-4-6zm9 0c-2.5 0-4.5 2-4.5 4.5S16 17 18.5 17c.4 0 .8-.05 1.17-.15-.57 1.45-1.67 2.45-3.17 3.15l1 1.6c3.1-1.4 5-4.1 5-7.6 0-3.3-1.8-6-4-6z"/>
+        </svg>
+        <blockquote class="font-display text-2xl md:text-3xl italic font-medium text-brand-900 leading-snug">
+          "The believer's shade on the Day of Resurrection will be their charity"
+        </blockquote>
+        <p class="mt-4 text-brand-600 font-semibold tracking-wide">— Hadith, Tirmidhi</p>
       </div>
-    </div>
+    </section>
 
-    <!-- Modal for Student Support Program -->
-    <div id="studentModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 class="text-2xl font-bold mb-4">Student Support Program Launches</h2>
-        <p>The people of Bangladesh are facing an unprecedented crisis. After years of enduring a corrupt regime, the government has finally fallen. While this is a moment of hope for a better future, it has come at a significant cost. What started as an anti-discrimination student movement to reform the existing quota system on some of the highly sought government jobs in the country, quickly became a battleground as the government attacked its own people. Brave citizens took to the streets, demanding justice and freedom, only to be met with violence. On the days leading to the victory on August 5th, there were indiscriminate shooting and arson attacks throughout the country. Many were injured (rickshaw pullers and street vendors who became amputees from gunshot wounds) during protests, and countless families have lost their livelihoods as businesses were destroyed in the chaos.</p>
-      </div>
-    </div>
-
-    <section class="section" style="background: #ffffff;">
-      <div class="container-xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="text-center lg:text-left">
-            <h2 class="text-4xl font-bold mb-6">Want to Volunteer with Us?</h2>
-            <p class="text-gray-600 max-w-xl mx-auto lg:mx-0 mb-8">We welcome passionate individuals to join our mission of creating positive change in communities across Bangladesh.</p>
-            <a href="#" class="btn btn-primary">Become a Volunteer</a>
+    <!-- Impact stats -->
+    <section class="pb-16 md:pb-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="card px-6 py-10 md:px-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="stat-value">292</p>
+            <p class="stat-label mt-1">injured patients documented &amp; supported</p>
           </div>
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtiP3_IJ-M-hs15XK26ZB729KaYIBdsVPHSPIvNFfqRke9eg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          <div>
+            <p class="stat-value">300+</p>
+            <p class="stat-label mt-1">families reached with flood relief</p>
+          </div>
+          <div>
+            <p class="stat-value">200+</p>
+            <p class="stat-label mt-1">families fed through Ramadan &amp; Eid programs</p>
+          </div>
+          <div>
+            <p class="stat-value">100%</p>
+            <p class="stat-label mt-1">volunteer-run, donation-first policy</p>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer py-16">
-      <div class="container-xl mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
-            <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-            <ul class="space-y-2">
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="donate.html">Donate</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="events.html">Events</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
-            <ul class="space-y-2">
-              <li>Delaware, USA</li>
-              <li>Email: contact@udaraid.org</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
-            <div class="flex space-x-4 mt-4">
-              <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
-              <a href="https://x.com/udar_aid">Twitter</a>
-              <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
-            </div>
-          </div>
+    <!-- What we do -->
+    <section class="py-16 md:py-24 bg-white/60">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="eyebrow mb-3">What we do</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950">From emergency response to lasting change</h2>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
-          <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="card card-hover p-7">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-3.5-8-6.6-8-10.2A4.8 4.8 0 0 1 12 8a4.8 4.8 0 0 1 8 2.8c0 3.6-3.5 6.7-8 10.2z"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-2">Emergency Relief</h3>
+            <p class="text-sm leading-relaxed text-gray-600">Rapid response with food, clean water, hygiene kits, and shelter materials when disaster strikes.</p>
+          </div>
+          <div class="card card-hover p-7">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-2">Medical Rehabilitation</h3>
+            <p class="text-sm leading-relaxed text-gray-600">Surgeries, medication, and monthly sponsorship for the injured and their families as they rebuild.</p>
+          </div>
+          <div class="card card-hover p-7">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-2">Food &amp; Seasonal Programs</h3>
+            <p class="text-sm leading-relaxed text-gray-600">Iftar meals, grocery baskets, and Eid support so families can observe sacred days with dignity.</p>
+          </div>
+          <div class="card card-hover p-7">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.25L3 10l9 3.75L21 10l-9-3.75zM6 12v4.5c0 1 2.7 2.25 6 2.25s6-1.25 6-2.25V12"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-2">Education Support</h3>
+            <p class="text-sm leading-relaxed text-gray-600">Building safe learning spaces and covering children's education for families in crisis.</p>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      // Get the modal
-      var studentModal = document.getElementById("studentModal");
-      var floodModal = document.getElementById("floodModal");
+    <!-- Featured projects -->
+    <section class="band-green py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div class="max-w-2xl">
+            <p class="eyebrow !text-brand-100 mb-3">Our projects</p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Impact you helped make possible</h2>
+          </div>
+          <a href="projects.html" class="btn btn-ghost-light btn-sm self-start md:self-auto">See all projects</a>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <article class="card card-hover flex flex-col">
+            <img src="./images/flood-relief.jpg" alt="Volunteers distributing flood relief supplies" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip mb-4 self-start">Relief</span>
+              <h3 class="font-display text-xl font-bold mb-2">Flood Relief in Noakhali</h3>
+              <p class="text-sm leading-relaxed text-gray-600 mb-5 flex-1">Emergency packages, clean water, and shelter materials for over 300 families devastated by the August 2024 floods.</p>
+              <a href="projects.html" class="font-bold text-brand-700 hover:text-brand-600 text-sm">Read more &rarr;</a>
+            </div>
+          </article>
+          <article class="card card-hover flex flex-col">
+            <img src="./images/student-support.jpg" alt="Support for July Revolution survivors" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-amber mb-4 self-start">Rehabilitation</span>
+              <h3 class="font-display text-xl font-bold mb-2">July Revolution Rehabilitation</h3>
+              <p class="text-sm leading-relaxed text-gray-600 mb-5 flex-1">Medical aid and short- and long-term sponsorship for protestors and families injured during the July movement.</p>
+              <a href="projects.html" class="font-bold text-brand-700 hover:text-brand-600 text-sm">Read more &rarr;</a>
+            </div>
+          </article>
+          <article class="card card-hover flex flex-col">
+            <img src="./images/IMG_2203.JPG" alt="Community members supported by UDAR Aid" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip mb-4 self-start">Community</span>
+              <h3 class="font-display text-xl font-bold mb-2">Community Recovery Stories</h3>
+              <p class="text-sm leading-relaxed text-gray-600 mb-5 flex-1">Stories of resilience and recovery from the communities we stand beside — from rickshaws gifted to livelihoods restored.</p>
+              <a href="gallery.html" class="font-bold text-brand-700 hover:text-brand-600 text-sm">See the stories &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      // Get the button that opens the modals
-      var studentBtn = document.getElementById("student-support");
-      var floodBtn = document.getElementById("flood-relief");
+    <!-- Volunteer -->
+    <section id="volunteer" class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 items-center">
+          <div>
+            <p class="eyebrow mb-3">Get involved</p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950 mb-5">Want to volunteer with us?</h2>
+            <p class="text-gray-600 leading-relaxed mb-7">We welcome passionate individuals to join our mission of creating positive change in communities across Bangladesh. Every skill counts — from fundraising and outreach to on-the-ground coordination.</p>
+            <ul class="check-list mb-8">
+              <li>Join a fully volunteer-run team in the diaspora</li>
+              <li>Help with campaigns, events, and case follow-ups</li>
+              <li>See exactly where every dollar goes — full transparency</li>
+            </ul>
+            <a href="#volunteer-form" class="btn btn-primary">Become a Volunteer</a>
+          </div>
+          <div id="volunteer-form" class="card p-2">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtiP3_IJ-M-hs15XK26ZB729KaYIBdsVPHSPIvNFfqRke9eg/viewform?embedded=true" width="100%" height="600" style="border:0;" title="Volunteer sign-up form">Loading…</iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      // Get the <span> element that closes the modals
-      var span = document.getElementsByClassName("close");
+    <!-- Donate CTA -->
+    <section class="pb-16 md:pb-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="page-hero rounded-3xl px-8 py-14 md:px-16 text-center">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Your generosity is someone's lifeline</h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">100% donation policy, Zakat eligible. Every contribution goes directly to families in need.</p>
+          <a href="donate.html" class="btn btn-amber">Donate Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      // When the user clicks the student button, open the student modal
-      studentBtn.onclick = function() {
-        studentModal.style.display = "flex";
-      }
+  <footer class="site-footer">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+      <div class="grid gap-10 md:grid-cols-4">
+        <div>
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-12 w-auto mb-4 bg-white rounded-lg p-1">
+          <p class="text-sm leading-relaxed">UDAR — United Development Aid and Relief — is a 100% volunteer-run organization by the Bangladeshi diaspora, dedicated to emergency relief, rehabilitation, and sustainable development in Bangladesh.</p>
+        </div>
+        <div>
+          <h3 class="mb-4">Explore</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Contact</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Delaware, USA</li>
+            <li><a href="mailto:contact@udaraid.org">contact@udaraid.org</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Follow us</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a></li>
+            <li><a href="https://x.com/udar_aid">Twitter / X</a></li>
+            <li><a href="https://www.instagram.com/udaraidusa/">Instagram</a></li>
+          </ul>
+          <a href="donate.html" class="btn btn-amber btn-sm mt-6">Donate</a>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
+        <p>&copy; <span id="footer-year">2026</span> UDAR Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-      // When the user clicks the flood button, open the flood modal
-      floodBtn.onclick = function() {
-        floodModal.style.display = "flex";
-      }
-
-      // When the user clicks on <span> (x), close the modals
-      for (let i = 0; i < span.length; i++) {
-        span[i].onclick = function() {
-          studentModal.style.display = "none";
-          floodModal.style.display = "none";
-        }
-      }
-
-      // When the user clicks anywhere outside of the modals, close them
-      window.onclick = function(event) {
-        if (event.target == studentModal) {
-          studentModal.style.display = "none";
-        }
-        if (event.target == floodModal) {
-          floodModal.style.display = "none";
-        }
-      }
-
-      // Mobile menu
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.remove('active');
-        }
-      });
-    </script>
-  </body>
+  <script src="assets/site.js"></script>
+</body>
 </html>

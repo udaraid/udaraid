@@ -1,434 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Projects - Udar Aid </title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-      :root {
-        --brand-900: #0f3d2e;
-        --brand-700: #166948;
-        --brand-500: #1f9a63;
-        --brand-300: #87d4b2;
-        --ink-900: #0f1c16;
-        --ink-700: #2a3a33;
-        --ink-500: #4a5b52;
-        --sand-50: #f7f5f0;
-        --sand-100: #f0ede6;
-        --sun-200: #f5d77a;
-        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
-        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
-        --radius-lg: 20px;
-        --radius-md: 14px;
-      }
-
-      body {
-        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
-        background: var(--sand-50);
-        color: var(--ink-900);
-      }
-
-      h1, h2, h3 {
-        font-family: "Fraunces", serif;
-        color: var(--ink-900);
-        letter-spacing: -0.01em;
-      }
-
-      .page-bg {
-        background:
-          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
-          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
-          var(--sand-50);
-      }
-
-      .container-xl {
-        max-width: 1120px;
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .section-tight {
-        padding: 56px 0;
-      }
-
-      .nav-link {
-        color: var(--ink-700);
-        font-weight: 600;
-        transition: color 0.2s ease;
-      }
-
-      .nav-link:hover {
-        color: var(--brand-700);
-      }
-
-      .page-hero {
-        position: relative;
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: var(--shadow-soft);
-        background: var(--brand-700);
-        min-height: 200px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-      }
-
-      .card {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-card);
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border: 1px solid rgba(15, 28, 22, 0.05);
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .card img {
-        width: 100%;
-        height: 224px;
-        object-fit: cover;
-        display: block;
-      }
-
-      .card .p-6 {
-        flex: 1;
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 30px rgba(15, 28, 22, 0.15);
-      }
-
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: rgba(135, 212, 178, 0.25);
-        color: var(--brand-700);
-        font-weight: 600;
-        font-size: 0.85rem;
-      }
-
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background: rgba(15, 28, 22, 0.6);
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-
-      .modal-content {
-        background: #fff;
-        padding: 28px;
-        border-radius: var(--radius-lg);
-        width: 100%;
-        max-width: 640px;
-        box-shadow: var(--shadow-soft);
-      }
-
-      .footer {
-        background: #111915;
-        color: #e2e6e1;
-      }
-
-      .footer a {
-        color: #b7c2ba;
-        transition: color 0.2s ease;
-      }
-
-      .footer a:hover {
-        color: #fff;
-      }
-
-      a:focus-visible,
-      button:focus-visible {
-        outline: 3px solid var(--sun-200);
-        outline-offset: 3px;
-        border-radius: 8px;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      @media (max-width: 768px) {
-        .desktop-menu {
-          display: none;
-        }
-
-        .mobile-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background-color: #fff;
-          padding: 1rem;
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-          border-radius: 0 0 18px 18px;
-        }
-
-        .mobile-menu.active {
-          display: block;
-        }
-
-        .mobile-menu a {
-          display: block;
-          padding: 0.7rem 0;
-          text-align: center;
-          font-weight: 600;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Projects — UDAR Aid</title>
+  <meta name="description" content="UDAR Aid's campaigns from our first year — emergency medical care for July Revolution survivors, long-term rehabilitation, flood relief, Ramadan programs — and the ongoing projects we're funding now.">
+  <link rel="icon" type="image/png" href="udaraid_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#ddf3e7', 100: '#a9e2c6', 500: '#27a674', 600: '#1e8a60', 700: '#17694b', 800: '#11543c', 900: '#0b3d2c', 950: '#06231a' },
+            cream: { 50: '#faf8f3', 100: '#f2eee4' }
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
         }
       }
-    </style>
+    };
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="page-bg">
-    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
-        <div class="container-xl mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="relative z-50">
-                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
-                </a>
-                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="donate.html" class="nav-link">Donate</a>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="events.html" class="nav-link">Events</a>
-                </nav>
-                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
-                <div class="px-6 py-4">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="donate.html" class="nav-link">Donate</a>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="events.html" class="nav-link">Events</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="pt-24">
-        <section class="section-tight">
-            <div class="container-xl mx-auto px-6">
-                <div class="page-hero px-8 py-10">
-                    <div class="text-white max-w-2xl text-center mx-auto">
-                        <h1 class="text-4xl font-bold mb-4 text-white">Our Projects</h1>
-                        <p class="text-emerald-100">Stay informed about our latest initiatives, success stories, and the impact we're making together across Bangladesh.</p>
-                    
-</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container-xl mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold">Past Projects</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Highlights from the UDAR AID Anniversary Report.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card">
-                        <img src="./images/IMG_2203.JPG" alt="Emergency medical attention" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Emergency Medical Attention for the Injured</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>Your support rushed life‑saving care to revolution survivors—covering surgeries, medications, and recovery costs when families had nowhere else to turn.</li>
-                                <li>292 patients documented</li>
-                                <li>280 received direct financial support</li>
-                                <li>Comprehensive case tracking and follow‑up</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/long_term_rehab_1.png" alt="Long-term rehabilitation support" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Long‑Term Rehabilitation Support</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>Monthly sponsorship helped injured families regain stability—covering food, rent, treatment, and children’s education while they rebuilt their lives.</li>
-                                <li>BDT 10,000+ per family monthly</li>
-                                <li>6‑month commitment (Jan–Jun 2025)</li>
-                                <li>Families: Manik & Faruk, Nupur, Mamun, Mufti Firoz</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/flood_relief.jpg" alt="Flood fund relief" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Flood Fund Relief</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>In the aftermath of the August 2024 floods, your generosity delivered emergency relief packages and restored hope to devastated families.</li>
-                                <li>300+ families received emergency relief</li>
-                                <li>Food, hygiene kits, clean water, shelter materials</li>
-                                <li>One destroyed home rebuilt</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/ramadan_fp.jpg" alt="Ramadan and Eid campaigns" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Ramadan & Eid Campaigns</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>You helped families observe sacred days with dignity through iftar meals, groceries, and Eid support for those most in need.</li>
-                                <li>$1,425 total distributed</li>
-                                <li>200+ families benefited</li>
-                                <li>100+ orphan children supported</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/individual_crisis.jpg" alt="Individuals in crisis" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Individuals in Crisis</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>When emergencies struck, donors stepped in—covering urgent medical bills, disability support, and livelihood restoration for vulnerable families.</li>
-                                <li>Helal’s Campaign: $1,085 raised and distributed</li>
-                                <li>Mr Motiur: $100 support sent in March</li>
-                                <li>Abdul Kader: $328 (BDT 40,000) for a Mishuk</li>
-                                <li>Shahbuddin: family support after severe injuries</li>
-                                <li>Cancer chemotherapy survivor: first session covered ($350)</li>
-                                <li>Nur Mohammad: paralysis support case</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/madrasha_1.jpg" alt="Madrassa project" class="w-full h-56 object-cover block">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-3">Madrassa Project</h3>
-                            <ul class="text-gray-600 space-y-2 list-disc list-inside">
-                                <li>Supported a remote village madrassa in Kishoreganj (Itna Upazilla) to build a permanent school structure for 70+ students from low‑income families.</li>
-                                <li>Fundraising canvas session in New York helped raise and send 98,289 BDT for construction.</li>
-                                <li>Construction is in full swing; total project need is approximately 3,20,000 BDT.</li>
-                                <li>Students now have a safer, more permanent learning space, especially during monsoon season.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<section class="section">
-            <div class="container-xl mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold">Ongoing Projects</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">We will update this section with current projects soon.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
-            <p id="modal-description" class="text-gray-700 mb-4"></p>
-            <button id="close-modal" class="text-white px-4 py-2 rounded" style="background: var(--brand-700);">Close</button>
-        </div>
+<body>
+  <header class="site-header fixed top-0 inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" aria-label="UDAR Aid home">
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-10 md:h-12 w-auto">
+        </a>
+        <nav class="hidden md:flex items-center gap-7" aria-label="Primary">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link" aria-current="page">Projects</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link">Events</a>
+          <a href="donate.html" class="btn btn-primary btn-sm">Donate</a>
+        </nav>
+        <button id="menu-btn" class="md:hidden p-2 text-brand-900" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+    <nav id="mobile-nav" class="mobile-nav md:hidden" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="donate.html" class="text-brand-700 font-bold">Donate</a>
+    </nav>
+  </header>
 
-    <footer class="footer py-16">
-        <div class="container-xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
-                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="events.html">Events</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
-                    <ul class="space-y-2">
-                        <li>Delaware, USA</li>
-                        <li>Email: contact@udaraid.org</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
-                        <a href="https://x.com/udar_aid">Twitter</a>
-                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
-                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
-            </div>
+  <main class="pt-16 md:pt-20">
+
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28 text-center">
+        <p class="eyebrow eyebrow-center !text-brand-100 justify-center mb-4">Our work</p>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-5">Our Projects</h1>
+        <p class="text-white/80 max-w-2xl mx-auto text-lg">Stay informed about our latest initiatives, success stories, and the impact we're making together across Bangladesh.</p>
+      </div>
+    </section>
+
+    <!-- Revolution context -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-3xl mx-auto px-5 sm:px-8">
+        <p class="eyebrow mb-3">Where it began</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950 mb-6">The July–August 2024 Revolution</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-5">
+          What started as an anti-discrimination student movement to reform the quota system for government jobs quickly became a battleground as the government attacked its own people. Brave citizens took to the streets demanding justice and freedom, only to be met with violence. In the days leading to victory on August 5th, indiscriminate shooting and arson left hundreds injured — rickshaw pullers and street vendors became amputees from gunshot wounds — and countless families lost their livelihoods.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          UDAR AID was born from the ashes of that crisis. What began as an urgent response to help injured protesters — in partnership with CSE-DU, Computer Science and Engineering students from Dhaka University — has grown into a humanitarian organization dedicated to rebuilding lives and restoring dignity.
+        </p>
+      </div>
+    </section>
+
+    <!-- Campaigns -->
+    <section class="py-16 md:py-20 bg-white/60">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-14">
+          <p class="eyebrow mb-3">From the anniversary report</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950">Past campaigns</h2>
         </div>
-    </footer>
 
-    <script>
-        $(document).ready(function() {
-            const projectDetails = {
-                flood: {
-                    title: "Flood Relief: Making a Difference in Noakhali",
-                    description: "Our emergency response team is providing immediate assistance to flood-affected communities in the Noakhali region. We have supported over 500 families with essential supplies and resources."
-                },
-                student: {
-                    title: "Student Support Program Launches",
-                    description: "Bangladesh is facing an unprecedented crisis. After years of enduring a corrupt regime, the government has finally fallen. While this is a moment of hope for a better future, it has come at a significant cost. What started as an anti-discrimination student movement to reform the existing quota system on some of the highly sought government jobs in the country, quickly became a battleground as the government attacked its own people. Brave citizens took to the streets, demanding justice and freedom, only to be met with violence. On the days leading to the victory on August 5th, there were indiscriminate shooting and arson attacks throughout the country. Many were injured (rickshaw pullers and street vendors who became amputees from gunshot wounds) during protests, and countless families have lost their livelihoods as businesses were destroyed in the chaos."
-                },
-                community: {
-                    title: "Community Recovery Stories",
-                    description: "Stories of resilience and recovery from our supported communities."
-                }
-            };
+        <div class="space-y-16 md:space-y-20">
 
-            $('.read-more').click(function() {
-                const project = $(this).data('project');
-                $('#modal-title').text(projectDetails[project].title);
-                $('#modal-description').text(projectDetails[project].description);
-                $('#project-modal').css('display', 'flex');
-            });
+          <!-- Campaign 1 -->
+          <article class="grid gap-8 lg:grid-cols-2 items-center">
+            <div class="card overflow-hidden">
+              <img src="./images/IMG_2203.JPG" alt="UDAR Aid and CSE-DU volunteers with hospitalized revolution survivors" class="w-full h-72 lg:h-96 object-cover">
+            </div>
+            <div>
+              <span class="chip chip-amber mb-4">Campaign 1 · Medical</span>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">Emergency Medical Attention for the Injured</h3>
+              <p class="text-gray-700 leading-relaxed mb-4">We provided immediate financial assistance for urgent medical care to revolution survivors hospitalized across Bangladesh. Through our partnership with CSE-DU, we maintained direct communication with patients, assessed their needs, and transferred funds for medications, surgeries, and post-treatment care.</p>
+              <p class="text-gray-600 leading-relaxed mb-5">Survivors faced a healthcare crisis — limited access to quality treatment and mounting expenses. Many were breadwinners whose injuries left their families without income.</p>
+              <ul class="check-list text-sm">
+                <li>292 patients documented</li>
+                <li>280 received direct financial support</li>
+                <li>Comprehensive patient database maintained</li>
+                <li>Individual case tracking and follow-up</li>
+              </ul>
+            </div>
+          </article>
 
-            $('#close-modal').click(function() {
-                $('#project-modal').hide();
-            });
-        });
+          <!-- Campaign 2 -->
+          <article class="grid gap-8 lg:grid-cols-2 items-center">
+            <div class="card overflow-hidden lg:order-2">
+              <img src="./images/long_term_rehab_1.png" alt="Families receiving long-term rehabilitation support" class="w-full h-72 lg:h-96 object-cover">
+            </div>
+            <div class="lg:order-1">
+              <span class="chip chip-amber mb-4">Campaign 2 · Rehabilitation</span>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">Long-Term Rehabilitation Support</h3>
+              <p class="text-gray-700 leading-relaxed mb-4">From January through June 2025, we committed to sustained monthly support for four severely injured families — a minimum of BDT 10,000 per family each month for food, rent, medical expenses, and children's education while primary earners recover.</p>
+              <p class="text-gray-600 leading-relaxed mb-5">Many survivors sustained permanent disabilities requiring long-term care. Without ongoing support, these families faced destitution as medical costs continued while income disappeared.</p>
+              <div class="card p-6 bg-brand-50/50">
+                <p class="font-bold text-brand-800 text-sm uppercase tracking-wide mb-3">Featured families</p>
+                <ul class="check-list text-sm">
+                  <li><strong>Manik &amp; Faruk</strong> — father and son injured by petrol bombs, supporting a 7-member family</li>
+                  <li><strong>Nupur</strong> — shot in both legs, living alone, former salesperson</li>
+                  <li><strong>Mamun</strong> — shattered hand bones, sole provider for his wife and grandmother</li>
+                  <li><strong>Mufti Firoz</strong> — 265 rubber bullet wounds, children unable to attend school</li>
+                </ul>
+              </div>
+            </div>
+          </article>
 
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+          <!-- Campaign 3 -->
+          <article class="grid gap-8 lg:grid-cols-2 items-center">
+            <div class="card overflow-hidden">
+              <img src="./images/flood_relief.jpg" alt="Emergency relief distribution after the August 2024 floods" class="w-full h-72 lg:h-96 object-cover">
+            </div>
+            <div>
+              <span class="chip mb-4">Campaign 3 · Relief</span>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">Flood Fund Relief</h3>
+              <p class="text-gray-700 leading-relaxed mb-4">After the catastrophic August 2024 floods in south-eastern Bangladesh, UDAR AID worked in close partnership with Al Asr, a faith-based humanitarian organization, to reach the most affected families in the Noakhali and Feni region — mobilizing resources and deploying teams on the ground for swift distribution of emergency relief.</p>
+              <p class="text-gray-600 leading-relaxed mb-5">Tens of thousands were left exposed to hunger and homelessness overnight — communities among the most vulnerable in Bangladesh, often overlooked by mainstream aid.</p>
+              <ul class="check-list text-sm">
+                <li>300+ families received emergency relief packages</li>
+                <li>Food, hygiene kits, clean water, and shelter materials</li>
+                <li>One completely destroyed home rebuilt — a new start for a family that lost everything</li>
+              </ul>
+            </div>
+          </article>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+          <!-- Campaign 4 -->
+          <article class="grid gap-8 lg:grid-cols-2 items-center">
+            <div class="card overflow-hidden lg:order-2">
+              <img src="./images/ramadan_fp.jpg" alt="Iftar meals served during the Ramadan campaign" class="w-full h-72 lg:h-96 object-cover">
+            </div>
+            <div class="lg:order-1">
+              <span class="chip mb-4">Campaign 4 · Food</span>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">Ramadan &amp; Eid Campaigns</h3>
+              <p class="text-gray-700 leading-relaxed mb-4">We organized comprehensive Ramadan and Eid support — iftar meals for orphan children, grocery support for day laborers, and Eid meals for needy families — through partnerships with local organizations.</p>
+              <p class="text-gray-600 leading-relaxed mb-5">The post-revolution economic crisis made it hard for vulnerable families to observe Ramadan with dignity. We aimed to ensure economic hardship didn't prevent spiritual observance and community celebration.</p>
+              <ul class="check-list text-sm">
+                <li>$1,425 total distributed</li>
+                <li>200+ families benefited</li>
+                <li>100+ orphan children supported</li>
+              </ul>
+            </div>
+          </article>
 
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-    </script>
+          <!-- Madrassa (kept from previous update; not part of the anniversary report) -->
+          <article class="grid gap-8 lg:grid-cols-2 items-center">
+            <div class="card overflow-hidden">
+              <img src="./images/madrasha_1.jpg" alt="Madrassa construction project in Kishoreganj" class="w-full h-72 lg:h-96 object-cover">
+            </div>
+            <div>
+              <span class="chip mb-4">Education</span>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">Madrassa Project</h3>
+              <p class="text-gray-700 leading-relaxed mb-5">Supporting a remote village madrassa in Kishoreganj (Itna Upazilla) to build a permanent school structure for 70+ students from low-income families — a safer, more permanent learning space, especially during monsoon season.</p>
+              <ul class="check-list text-sm">
+                <li>98,289 BDT raised at a New York canvas session and sent for construction</li>
+                <li>Construction in full swing; total project need is about 3,20,000 BDT</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign 5: Individuals in crisis -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="eyebrow mb-3">Campaign 5 · Crisis support</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950 mb-4">Individuals in Crisis</h2>
+          <p class="text-gray-600 leading-relaxed">When emergencies struck, donors stepped in — covering urgent medical bills, disability support, and livelihood restoration for vulnerable families. These are their stories.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip chip-amber mb-4 self-start">$1,085 raised &amp; distributed</span>
+            <h3 class="font-display text-xl font-bold mb-3">Helal's Family</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Helal, a dedicated salesman and loving family man, passed away from kidney failure — leaving behind $3,000 in medical debt, a young widow, and a 2-year-old daughter. Your donations helped his family through their most vulnerable time.</p>
+          </article>
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip chip-amber mb-4 self-start">$100 sent · long-term support planned</span>
+            <h3 class="font-display text-xl font-bold mb-3">Mr Motiur</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">A garments worker at Star Fashion, Ashulia, Motiur's legs and head are full of splinter bullets and he can no longer work. The sole earner for his wife, 3-year-old daughter, mother, and sister, he has returned to his village home in Manikgonj.</p>
+          </article>
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip chip-amber mb-4 self-start">$328 (BDT 40,000)</span>
+            <h3 class="font-display text-xl font-bold mb-3">Abdul Kader</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Injured on August 1, 2024 during a clash with police in Kishorganj, Abdul Kader can no longer walk normally or do basic work. With two sons still in school, UDAR AID's support helped him purchase a Mishuk to restore his livelihood.</p>
+          </article>
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip mb-4 self-start">Debt &amp; medical costs covered</span>
+            <h3 class="font-display text-xl font-bold mb-3">Shahbuddin</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Critically injured by rubber bullets that penetrated his chest through his heart and exited his back, Shahbuddin is the sole breadwinner of a family of four. Funds distributed with Al Asr settled outstanding debts and covered the medical expenses for his recovery.</p>
+          </article>
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip mb-4 self-start">$350 · first chemotherapy session</span>
+            <h3 class="font-display text-xl font-bold mb-3">A Mother's Fight Against Cancer</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Life took an unexpected turn for a 50-year-old mother in a small town when she was suddenly diagnosed with cancer. With an elderly husband and small children at home, treatment seemed impossible — until your support covered her first chemotherapy session, giving her a fighting chance.</p>
+          </article>
+
+          <article class="card card-hover p-7 flex flex-col">
+            <span class="chip chip-neutral mb-4 self-start">Paralysis support case</span>
+            <h3 class="font-display text-xl font-bold mb-3">Nur Mohammad</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Nur Mohammad, 61, has been paralyzed. His only son — a teenager working as a salesman at a small shop — is all he has to take care of him.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Ongoing projects -->
+    <section class="band-green py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="eyebrow !text-brand-100 mb-3">From the anniversary report</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ongoing campaigns</h2>
+          <p class="text-white/80 leading-relaxed">We are providing long-term rehabilitation support to families of the July Revolution, funded largely by Ramadan zakat donations.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+
+          <article class="card p-7">
+            <h3 class="font-display text-xl font-bold mb-3">Matiur Rahman — Urgent Surgery</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Raising support for Matiur's urgent surgery, estimated at 5 lakh BDT.</p>
+          </article>
+
+          <article class="card p-7">
+            <h3 class="font-display text-xl font-bold mb-3">Mufti Feroz — Back on His Feet</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Helping our past sponsorship recipient purchase a laptop so he can complete his technical program and build apps.</p>
+          </article>
+
+          <article class="card p-7">
+            <h3 class="font-display text-xl font-bold mb-3">Imon — Treatment &amp; Education</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Covering ongoing medical treatment and education for 12-year-old Imon, who was shot in the leg during the July protests.</p>
+          </article>
+
+          <article class="card p-7">
+            <h3 class="font-display text-xl font-bold mb-3">Hatia Flood Relief</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Sending emergency aid — food packets, hygiene kits, and shelter support — to families displaced by intense flooding on Hatia Island, Noakhali.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How we work -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="card p-8">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-1a4 4 0 0 0-5.4-3.75M17 20H7m10 0v-1c0-1.1-.27-2.14-.75-3.05M7 20H2v-1a4 4 0 0 1 5.4-3.75M7 20v-1c0-1.1.27-2.14.75-3.05m0 0a5.5 5.5 0 0 1 8.5 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-3">Our first internship program</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">In June 2025 we launched our first Internship Program in Dhaka, Bangladesh. The pilot became an instant success for both UDAR and its beneficiaries — our ground intern conducts in-person verification of every beneficiary, paving the way for more interns and further growth.</p>
+          </div>
+          <div class="card p-8">
+            <span class="icon-tile mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-8 4h5M7 4h10a2 2 0 0 1 2 2v14l-4-2-3 2-3-2-4 2V6a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <h3 class="font-display text-xl font-bold mb-3">Partnerships that amplify impact</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Our partnerships with local organizations like CSE-DU (Dhaka University) and the Al-Asr Foundation ensure we reach the most vulnerable — with detailed documentation of every case, every dollar spent, and every life touched.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pb-16 md:pb-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="page-hero rounded-3xl px-8 py-14 md:px-16 text-center">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Help fund what happens next</h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">Matiur's surgery, Imon's treatment and education, Hatia's flood relief — your gift goes directly to the field.</p>
+          <a href="donate.html" class="btn btn-amber">Donate Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+      <div class="grid gap-10 md:grid-cols-4">
+        <div>
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-12 w-auto mb-4 bg-white rounded-lg p-1">
+          <p class="text-sm leading-relaxed">UDAR — United Development Aid and Relief — is a 100% volunteer-run organization by the Bangladeshi diaspora, dedicated to emergency relief, rehabilitation, and sustainable development in Bangladesh.</p>
+        </div>
+        <div>
+          <h3 class="mb-4">Explore</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Contact</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Delaware, USA</li>
+            <li><a href="mailto:contact@udaraid.org">contact@udaraid.org</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Follow us</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a></li>
+            <li><a href="https://x.com/udar_aid">Twitter / X</a></li>
+            <li><a href="https://www.instagram.com/udaraidusa/">Instagram</a></li>
+          </ul>
+          <a href="donate.html" class="btn btn-amber btn-sm mt-6">Donate</a>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
+        <p>&copy; <span id="footer-year">2026</span> UDAR Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>

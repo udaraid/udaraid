@@ -1,357 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - UDAR Aid</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --brand-900: #0f3d2e;
-        --brand-700: #166948;
-        --brand-500: #1f9a63;
-        --brand-300: #87d4b2;
-        --ink-900: #0f1c16;
-        --ink-700: #2a3a33;
-        --ink-500: #4a5b52;
-        --sand-50: #f7f5f0;
-        --sand-100: #f0ede6;
-        --sun-200: #f5d77a;
-        --shadow-soft: 0 12px 30px rgba(15, 28, 22, 0.12);
-        --shadow-card: 0 10px 24px rgba(15, 28, 22, 0.10);
-        --radius-lg: 20px;
-        --radius-md: 14px;
-      }
-
-      body {
-        font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
-        background: var(--sand-50);
-        color: var(--ink-900);
-      }
-
-      h1, h2, h3 {
-        font-family: "Fraunces", serif;
-        color: var(--ink-900);
-        letter-spacing: -0.01em;
-      }
-
-      .page-bg {
-        background:
-          radial-gradient(circle at 10% 10%, rgba(31, 154, 99, 0.12), transparent 50%),
-          radial-gradient(circle at 90% 20%, rgba(245, 215, 122, 0.2), transparent 45%),
-          var(--sand-50);
-      }
-
-      .container-xl {
-        max-width: 1120px;
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .section-tight {
-        padding: 56px 0;
-      }
-
-      .nav-link {
-        color: var(--ink-700);
-        font-weight: 600;
-        transition: color 0.2s ease;
-      }
-
-      .nav-link:hover {
-        color: var(--brand-700);
-      }
-
-      .page-hero {
-        position: relative;
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: var(--shadow-soft);
-        background: var(--brand-700);
-        min-height: 200px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-      }
-
-      .card {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-card);
-        overflow: hidden;
-        border: 1px solid rgba(15, 28, 22, 0.05);
-      }
-
-      .footer {
-        background: #111915;
-        color: #e2e6e1;
-      }
-
-      .footer a {
-        color: #b7c2ba;
-        transition: color 0.2s ease;
-      }
-
-      .footer a:hover {
-        color: #fff;
-      }
-
-      a:focus-visible,
-      button:focus-visible,
-      select:focus-visible,
-      input:focus-visible {
-        outline: 3px solid var(--sun-200);
-        outline-offset: 3px;
-        border-radius: 8px;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      @media (max-width: 768px) {
-        .desktop-menu {
-          display: none;
-        }
-
-        .mobile-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background-color: #fff;
-          padding: 1rem;
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-          border-radius: 0 0 18px 18px;
-        }
-
-        .mobile-menu.active {
-          display: block;
-        }
-
-        .mobile-menu a {
-          display: block;
-          padding: 0.7rem 0;
-          text-align: center;
-          font-weight: 600;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — UDAR Aid</title>
+  <meta name="description" content="Stay updated with UDAR Aid's fundraising events, community gatherings, and online fundraisers supporting communities in Bangladesh.">
+  <link rel="icon" type="image/png" href="udaraid_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#ddf3e7', 100: '#a9e2c6', 500: '#27a674', 600: '#1e8a60', 700: '#17694b', 800: '#11543c', 900: '#0b3d2c', 950: '#06231a' },
+            cream: { 50: '#faf8f3', 100: '#f2eee4' }
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
         }
       }
-    </style>
+    };
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="page-bg">
-    <header class="bg-white bg-opacity-95 shadow-md fixed top-0 left-0 right-0 w-full z-50">
-        <div class="container-xl mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="relative z-50">
-                    <img src="udaraid_logo.png" alt="UDAR Aid Logo" class="h-12 w-auto">
-                </a>
-                <nav class="desktop-menu hidden md:flex space-x-8 relative z-50">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="donate.html" class="nav-link">Donate</a>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="events.html" class="nav-link">Events</a>
-                </nav>
-                <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none relative z-50" id="mobile-menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav class="mobile-menu md:hidden absolute left-0 right-0 bg-white" id="mobile-menu">
-                <div class="px-6 py-4">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="donate.html" class="nav-link">Donate</a>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="events.html" class="nav-link">Events</a>
-                </div>
-            </nav>
+<body>
+  <header class="site-header fixed top-0 inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" aria-label="UDAR Aid home">
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-10 md:h-12 w-auto">
+        </a>
+        <nav class="hidden md:flex items-center gap-7" aria-label="Primary">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link" aria-current="page">Events</a>
+          <a href="donate.html" class="btn btn-primary btn-sm">Donate</a>
+        </nav>
+        <button id="menu-btn" class="md:hidden p-2 text-brand-900" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav md:hidden" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="donate.html" class="text-brand-700 font-bold">Donate</a>
+    </nav>
+  </header>
+
+  <main class="pt-16 md:pt-20">
+
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28 text-center">
+        <p class="eyebrow eyebrow-center !text-brand-100 justify-center mb-4">Events</p>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-5">Gather with us for good</h1>
+        <p class="text-white/80 max-w-2xl mx-auto text-lg">Stay updated with our latest events and initiatives.</p>
+      </div>
+    </section>
+
+    <!-- Event cards -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="eyebrow mb-3">Mark your calendar</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-950">Latest events</h2>
         </div>
-    </header>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-    <main class="pt-24">
-        <section class="section-tight">
-            <div class="container-xl mx-auto px-6">
-                <div class="page-hero px-8 py-10">
-                    <div class="text-white max-w-2xl text-center mx-auto">
-                        <h1 class="text-4xl font-bold mb-4 text-white">Upcoming Events</h1>
-                        <p class="text-lg text-emerald-100">Stay updated with our latest events and initiatives.</p>
-                    </div>
-                </div>
+          <article class="card card-hover flex flex-col">
+            <img src="./images/event-1.jpg" alt="Canvas for a Cause fundraising event" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-amber mb-4 self-start">Fundraiser</span>
+              <h3 class="font-display text-xl font-bold mb-3">Canvas for a Cause — UDAR Aid Fundraising Event</h3>
+              <ul class="text-sm text-gray-600 space-y-2 mb-5">
+                <li class="flex gap-2"><span aria-hidden="true">🗓</span> Sunday, August 16 · 11am–1pm</li>
+                <li class="flex gap-2"><span aria-hidden="true">📍</span> Moka &amp; Co., 142 W 34th St., New York, NY 10001</li>
+              </ul>
+              <a href="https://partiful.com/e/dJgBT9f26T2AmpoYWKOs" class="btn btn-primary btn-sm mt-auto self-start">Register Now</a>
             </div>
-        </section>
+          </article>
 
-        <section class="section">
-            <div class="container-xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Events</h2>
-
-                <div class="mb-6">
-                    <label for="event-filter" class="text-gray-600">Filter by Category:</label>
-                    <select id="event-filter" class="ml-2 p-2 border rounded">
-                        <option value="all">All</option>
-                        <option value="workshop">Workshops</option>
-                        <option value="fundraiser">Fundraisers</option>
-                        <option value="community">Community Events</option>
-                    </select>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card">
-                        <img src="./images/event-1.jpg" alt="Event 1" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Canvas for a Cause - UDAR AID Fundraising Event </h3>
-                            <p class="text-gray-600 mb-4">Date & Time: Sunday, August 16th, 11am-1pm
-                                Location:Moka & Co. 142 W 34th St., New York, NY 10001 </p>
-                            <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown1">5 days</span></p>
-                            <a href="https://partiful.com/e/dJgBT9f26T2AmpoYWKOs" class="text-green-700 hover:underline">Click here for registration</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/WIC.jpg" alt="Event 2" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">BD Association Islamic Conference Fundraising</h3>
-                            <p class="text-gray-600 mb-4">Date & Time: Saturday, February 1st, 6pm-9pm
-                                Location: Worcester Islamic Center, Worcester,MA</p>
-                            <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown2">Completed</span></p>
-                            <a href="#" class="text-green-700 hover:underline">Read More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/event3.jpg" alt="Event 3" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Upcoming Event at Delaware</h3>
-                            <p class="text-gray-600 mb-4">Announce Coming Soon.</p>
-                            <p class="text-gray-500 mb-4">Starts in: <span class="font-bold" id="countdown3">TBD</span></p>
-                            <a href="#" class="text-green-700 hover:underline">Read More</a>
-                        </div>
-                    </div>
-                </div>
+          <article class="card card-hover flex flex-col">
+            <img src="./images/WIC.jpg" alt="BD Association Islamic Conference fundraising" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-neutral mb-4 self-start">Completed</span>
+              <h3 class="font-display text-xl font-bold mb-3">BD Association Islamic Conference Fundraising</h3>
+              <ul class="text-sm text-gray-600 space-y-2 mb-5">
+                <li class="flex gap-2"><span aria-hidden="true">🗓</span> Saturday, February 1 · 6pm–9pm</li>
+                <li class="flex gap-2"><span aria-hidden="true">📍</span> Worcester Islamic Center, Worcester, MA</li>
+              </ul>
+              <p class="text-sm text-gray-500 mt-auto">Thank you to everyone who joined and gave generously.</p>
             </div>
-        </section>
+          </article>
 
-        <section class="section">
-            <div class="container-xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Register for an Event</h2>
-                <form class="max-w-lg mx-auto">
-                    <input type="text" name="name" placeholder="Full Name" class="w-full p-3 border rounded mb-3" required>
-                    <input type="email" name="email" placeholder="Email Address" class="w-full p-3 border rounded mb-3" required>
-                    <select name="event" class="w-full p-3 border rounded mb-3" required>
-                        <option value="" disabled selected>Select Event</option>
-                        <option value="event1">Event Title 1</option>
-                        <option value="event2">Event Title 2</option>
-                        <option value="event3">Event Title 3</option>
-                    </select>
-                    <button type="submit" class="w-full text-white py-3 rounded" style="background: var(--brand-700);">Register Now</button>
-                </form>
+          <article class="card card-hover flex flex-col">
+            <div class="w-full h-52 band-green flex items-center justify-center">
+              <svg class="w-14 h-14 text-white/50" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path stroke-linecap="round" d="M3 9h18M8 3v4m8-4v4"/></svg>
             </div>
-        </section>
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip mb-4 self-start">Coming soon</span>
+              <h3 class="font-display text-xl font-bold mb-3">Upcoming Event in Delaware</h3>
+              <p class="text-sm text-gray-600 mb-5">Details will be announced soon — follow our social channels so you don't miss it.</p>
+              <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#" class="font-bold text-brand-700 hover:text-brand-600 text-sm mt-auto">Follow for updates &rarr;</a>
+            </div>
+          </article>
 
-        <section class="section" style="background: linear-gradient(120deg, #0f3d2e, #1f9a63);">
-            <div class="container-xl mx-auto px-6 text-center text-white">
-                <h2 class="text-3xl font-bold mb-6 text-white">Online Fundraiser</h2>
-                <p class="text-lg mb-4">Join us in our online fundraising efforts to support various causes that uplift and empower communities in Bangladesh. Your contributions can make a significant impact!</p>
-                <p class="text-lg mb-6">We are committed to transparency and ensuring that every donation goes directly to those in need. Together, we can create positive change!</p>
-                <a href="#" class="inline-block bg-gray-900 text-white py-3 px-6 rounded text-lg hover:bg-gray-800 transition duration-300">Get Involved</a>
+          <article class="card card-hover flex flex-col">
+            <div class="w-full h-52 band-green flex items-center justify-center">
+              <svg class="w-14 h-14 text-white/50" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-1a4 4 0 0 0-5.4-3.75M17 20H7m10 0v-1c0-1.1-.27-2.14-.75-3.05M7 20H2v-1a4 4 0 0 1 5.4-3.75M7 20v-1c0-1.1.27-2.14.75-3.05m0 0a5.5 5.5 0 0 1 8.5 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
             </div>
-        </section>
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-neutral mb-4 self-start">Completed</span>
+              <h3 class="font-display text-xl font-bold mb-3">Solidarity Event for Human Rights</h3>
+              <ul class="text-sm text-gray-600 space-y-2 mb-5">
+                <li class="flex gap-2"><span aria-hidden="true">🗓</span> July 2024</li>
+                <li class="flex gap-2"><span aria-hidden="true">📍</span> Wilmington, Delaware</li>
+              </ul>
+              <p class="text-sm text-gray-500 mt-auto">Standing against student violence, with over 150 attendees.</p>
+            </div>
+          </article>
 
-        <section class="section">
-            <div class="container-xl mx-auto px-6">
-                <div class="flex flex-wrap justify-center gap-8">
-                    <div class="w-full md:w-1/2 lg:w-2/5">
-                        <div class="card p-4" style="background: var(--brand-700); color: white;">
-                            <h2 class="text-3xl font-bold mb-6 text-center text-white">Support the Heroes of Bangladesh's Freedom Movement</h2>
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/fundraiser.png" alt="Support Victims Fundraiser" class="w-full h-56 object-cover">
-                                <div class="p-6 text-gray-700">
-                                    <h3 class="text-xl font-semibold mb-2">Urgent Rehabilitation Support</h3>
-                                    <p class="mb-4">We are raising funds to support individuals whose lives have been upended by the recent struggles in Bangladesh. Your contribution can help provide urgent medical treatments, rehabilitation, and basic needs for these victims and their families.</p>
-                                    <a href="https://www.gofundme.com/f/support-victims-of-bangladeshs-fight-for-freedom" target="_blank" class="block bg-gray-900 text-white py-3 rounded text-center hover:bg-green-700 transition duration-300">Donate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <article class="card card-hover flex flex-col">
+            <div class="w-full h-52 band-green flex items-center justify-center">
+              <svg class="w-14 h-14 text-white/50" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c1.5 3-1.5 4.5 0 7.5 1.5-3-1.5-4.5 0-7.5zM12 10.5c-4.5 0-7 3.5-7 7 2-1.5 3.5-1 5-2.5 0 2.5 1 4 2 6 1-2 2-3.5 2-6 1.5 1.5 3 1 5 2.5 0-3.5-2.5-7-7-7z"/></svg>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-neutral mb-4 self-start">Completed</span>
+              <h3 class="font-display text-xl font-bold mb-3">Henna for Women &amp; Young Sisters</h3>
+              <ul class="text-sm text-gray-600 space-y-2 mb-5">
+                <li class="flex gap-2"><span aria-hidden="true">🗓</span> September 2024</li>
+                <li class="flex gap-2"><span aria-hidden="true">📍</span> ISD Annual Picnic, German Club, Delaware</li>
+              </ul>
+              <p class="text-sm text-gray-500 mt-auto">Henna at the ISD Annual Picnic, with an attendance of over 1,000.</p>
+            </div>
+          </article>
 
-                    <div class="w-full md:w-1/2 lg:w-2/5">
-                        <div class="card p-4" style="background: var(--brand-700); color: white;">
-                            <h2 class="text-3xl font-bold mb-6 text-center text-white">Ramadan Food Program for Needy People</h2>
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/ramadan.jpg" alt="Ramadan Food Program" class="w-full h-56 object-cover">
-                                <div class="p-6 text-gray-700">
-                                    <h3 class="text-xl font-semibold mb-2">Support Our Ramadan Food Program</h3>
-                                    <p class="mb-4">As we enter the blessed month of Ramadan, we aim to provide nourishing meals to families struggling with hunger and poverty. Your contribution can make a profound difference in the lives of those in need.</p>
-                                    <p class="mb-4">Help us reach our goal of supporting 200 families with essential food supplies. Every donation counts!</p>
-                                    <a href="https://www.gofundme.com/f/ramadan-food-program-for-needy-people?qid=e751918e1882dc2866296b3684e603c1" target="_blank" class="block bg-gray-900 text-white py-3 rounded text-center hover:bg-green-600 transition duration-300">Donate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer py-16">
-        <div class="container-xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About UDAR</h3>
-                    <p class="text-gray-300">UDAR Foundation is dedicated to improving lives through sustainable development and emergency relief.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="events.html">Events</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
-                    <ul class="space-y-2">
-                        <li>Delaware, USA</li>
-                        <li>Email: contact@udaraid.org</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Follow Us</h3>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a>
-                        <a href="https://x.com/udar_aid">Twitter</a>
-                        <a href="https://www.instagram.com/udaraidusa/">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
-                <p>&copy; 2025 UDAR Foundation. All rights reserved.</p>
-            </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Online fundraiser band -->
+    <section class="band-green py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-5">Online fundraisers</h2>
+        <p class="text-white/80 text-lg leading-relaxed mb-4">Join our online fundraising efforts to support causes that uplift and empower communities in Bangladesh. Your contribution can make a significant impact.</p>
+        <p class="text-white/80 leading-relaxed">We are committed to transparency and to ensuring that every donation goes directly to those in need. Together, we can create positive change.</p>
+      </div>
+    </section>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+    <!-- Fundraiser cards -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
 
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-    </script>
+          <article class="card card-hover flex flex-col">
+            <img src="./images/fundraiser.png" alt="Rehabilitation support fundraiser" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-amber mb-4 self-start">GoFundMe</span>
+              <h3 class="font-display text-xl font-bold mb-3">Support the Heroes of Bangladesh's Freedom Movement</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">We are raising funds to support individuals whose lives have been upended by the recent struggles in Bangladesh. Your contribution helps provide urgent medical treatment, rehabilitation, and basic needs for victims and their families.</p>
+              <a href="https://www.gofundme.com/f/support-victims-of-bangladeshs-fight-for-freedom" target="_blank" rel="noopener" class="btn btn-primary btn-sm mt-auto self-start">Donate Now</a>
+            </div>
+          </article>
+
+          <article class="card card-hover flex flex-col">
+            <img src="./images/ramadan.jpg" alt="Ramadan food program" class="w-full h-52 object-cover">
+            <div class="p-7 flex-1 flex flex-col">
+              <span class="chip chip-amber mb-4 self-start">GoFundMe</span>
+              <h3 class="font-display text-xl font-bold mb-3">Ramadan Food Program for Families in Need</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">Our Ramadan program provides nourishing meals to families struggling with hunger and poverty. Help us reach our goal of supporting 200 families with essential food supplies — every donation counts.</p>
+              <a href="https://www.gofundme.com/f/ramadan-food-program-for-needy-people?qid=e751918e1882dc2866296b3684e603c1" target="_blank" rel="noopener" class="btn btn-primary btn-sm mt-auto self-start">Donate Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Host / attend CTA -->
+    <section class="pb-16 md:pb-24">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="page-hero rounded-3xl px-8 py-14 md:px-16 text-center">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Want to attend or host a fundraiser?</h2>
+          <p class="text-white/80 max-w-xl mx-auto mb-8">Reach out and we'll help you organize an event for your community, campus, or mosque.</p>
+          <a href="mailto:contact@udaraid.org" class="btn btn-amber">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+      <div class="grid gap-10 md:grid-cols-4">
+        <div>
+          <img src="udaraid_logo.png" alt="UDAR Aid logo" class="h-12 w-auto mb-4 bg-white rounded-lg p-1">
+          <p class="text-sm leading-relaxed">UDAR — United Development Aid and Relief — is a 100% volunteer-run organization by the Bangladeshi diaspora, dedicated to emergency relief, rehabilitation, and sustainable development in Bangladesh.</p>
+        </div>
+        <div>
+          <h3 class="mb-4">Explore</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Contact</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Delaware, USA</li>
+            <li><a href="mailto:contact@udaraid.org">contact@udaraid.org</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4">Follow us</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.facebook.com/people/UDAR-Aid/61574058495240/#">Facebook</a></li>
+            <li><a href="https://x.com/udar_aid">Twitter / X</a></li>
+            <li><a href="https://www.instagram.com/udaraidusa/">Instagram</a></li>
+          </ul>
+          <a href="donate.html" class="btn btn-amber btn-sm mt-6">Donate</a>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
+        <p>&copy; <span id="footer-year">2026</span> UDAR Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
